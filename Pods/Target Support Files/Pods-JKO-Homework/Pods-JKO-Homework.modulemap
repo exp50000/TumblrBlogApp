@@ -1,4 +1,4 @@
-framework module Pods_JKO_Homework {
+module Pods_JKO_Homework {
   umbrella header "Pods-JKO-Homework-umbrella.h"
 
   export *

@@ -9,23 +9,37 @@
 /* Begin PBXBuildFile section */
 		793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFBE245A831E00F13D09 /* AppDelegate.swift */; };
 		793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC0245A831F00F13D09 /* SceneDelegate.swift */; };
-		793CDFC3245A831F00F13D09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* ViewController.swift */; };
+		793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* MainViewController.swift */; };
 		793CDFC6245A831F00F13D09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CDFC4245A831F00F13D09 /* Main.storyboard */; };
 		793CDFC8245A832300F13D09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 793CDFC7245A832300F13D09 /* Assets.xcassets */; };
 		793CDFCB245A832300F13D09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 793CDFC9245A832300F13D09 /* LaunchScreen.storyboard */; };
-		E07CFDD9C6F4AC92C2014BC6 /* Pods_JKO_Homework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 592939C1C5E6F771D53C88A5 /* Pods_JKO_Homework.framework */; };
+		793CDFDC245ABD3600F13D09 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFDB245ABD3600F13D09 /* BaseViewController.swift */; };
+		793CDFDF245ABFAF00F13D09 /* MainViewOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFDE245ABFAF00F13D09 /* MainViewOutlet.swift */; };
+		793CDFE2245ADE5D00F13D09 /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFE1245ADE5D00F13D09 /* TitleHeaderView.swift */; };
+		793CDFE4245ADF2000F13D09 /* TitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 793CDFE3245ADF2000F13D09 /* TitleHeaderView.xib */; };
+		793CDFE6245B4B3B00F13D09 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFE5245B4B3B00F13D09 /* UIView+Extensions.swift */; };
+		793CDFE9245C3B9100F13D09 /* TitleHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFE7245C3B9100F13D09 /* TitleHeaderCell.swift */; };
+		793CDFEA245C3B9100F13D09 /* TitleHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 793CDFE8245C3B9100F13D09 /* TitleHeaderCell.xib */; };
+		8A6E20FB57380AB90178C3EC /* libPods-JKO-Homework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 762CF4754F034A30C42E01FD /* libPods-JKO-Homework.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		592939C1C5E6F771D53C88A5 /* Pods_JKO_Homework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKO_Homework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		762CF4754F034A30C42E01FD /* libPods-JKO-Homework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JKO-Homework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBB245A831E00F13D09 /* JKO-Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JKO-Homework.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBE245A831E00F13D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793CDFC0245A831F00F13D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		793CDFC2245A831F00F13D09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		793CDFC2245A831F00F13D09 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		793CDFC5245A831F00F13D09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		793CDFC7245A832300F13D09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		793CDFCA245A832300F13D09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		793CDFCC245A832300F13D09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		793CDFDB245ABD3600F13D09 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		793CDFDE245ABFAF00F13D09 /* MainViewOutlet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewOutlet.swift; sourceTree = "<group>"; };
+		793CDFE1245ADE5D00F13D09 /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
+		793CDFE3245ADF2000F13D09 /* TitleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleHeaderView.xib; sourceTree = "<group>"; };
+		793CDFE5245B4B3B00F13D09 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		793CDFE7245C3B9100F13D09 /* TitleHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderCell.swift; sourceTree = "<group>"; };
+		793CDFE8245C3B9100F13D09 /* TitleHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleHeaderCell.xib; sourceTree = "<group>"; };
 		7FF6ED82606D0EC73041BCBA /* Pods-JKO-Homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKO-Homework.release.xcconfig"; path = "Target Support Files/Pods-JKO-Homework/Pods-JKO-Homework.release.xcconfig"; sourceTree = "<group>"; };
 		DF4B8C0FDAFF0CEB728D758C /* Pods-JKO-Homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKO-Homework.debug.xcconfig"; path = "Target Support Files/Pods-JKO-Homework/Pods-JKO-Homework.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -35,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E07CFDD9C6F4AC92C2014BC6 /* Pods_JKO_Homework.framework in Frameworks */,
+				8A6E20FB57380AB90178C3EC /* libPods-JKO-Homework.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +59,7 @@
 		5F5FFA972D1C62E146E63ABC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				592939C1C5E6F771D53C88A5 /* Pods_JKO_Homework.framework */,
+				762CF4754F034A30C42E01FD /* libPods-JKO-Homework.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,7 +127,8 @@
 		793CDFD5245A8F4300F13D09 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				793CDFC2245A831F00F13D09 /* ViewController.swift */,
+				793CDFDB245ABD3600F13D09 /* BaseViewController.swift */,
+				793CDFDD245ABF6900F13D09 /* MainViewController */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -135,6 +150,7 @@
 		793CDFD8245A942D00F13D09 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				793CDFE5245B4B3B00F13D09 /* UIView+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -146,13 +162,33 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		793CDFDD245ABF6900F13D09 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				793CDFE0245ADDDF00F13D09 /* CustomView */,
+				793CDFC2245A831F00F13D09 /* MainViewController.swift */,
+				793CDFDE245ABFAF00F13D09 /* MainViewOutlet.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		793CDFE0245ADDDF00F13D09 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				793CDFE1245ADE5D00F13D09 /* TitleHeaderView.swift */,
+				793CDFE3245ADF2000F13D09 /* TitleHeaderView.xib */,
+				793CDFE7245C3B9100F13D09 /* TitleHeaderCell.swift */,
+				793CDFE8245C3B9100F13D09 /* TitleHeaderCell.xib */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		94C012F7D4E911DDA3A7B780 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				DF4B8C0FDAFF0CEB728D758C /* Pods-JKO-Homework.debug.xcconfig */,
 				7FF6ED82606D0EC73041BCBA /* Pods-JKO-Homework.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -167,7 +203,6 @@
 				793CDFB7245A831E00F13D09 /* Sources */,
 				793CDFB8245A831E00F13D09 /* Frameworks */,
 				793CDFB9245A831E00F13D09 /* Resources */,
-				5D1D4613894AE8B81303F36F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,6 +253,8 @@
 			files = (
 				793CDFCB245A832300F13D09 /* LaunchScreen.storyboard in Resources */,
 				793CDFC8245A832300F13D09 /* Assets.xcassets in Resources */,
+				793CDFE4245ADF2000F13D09 /* TitleHeaderView.xib in Resources */,
+				793CDFEA245C3B9100F13D09 /* TitleHeaderCell.xib in Resources */,
 				793CDFC6245A831F00F13D09 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,23 +262,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5D1D4613894AE8B81303F36F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JKO-Homework/Pods-JKO-Homework-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JKO-Homework/Pods-JKO-Homework-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JKO-Homework/Pods-JKO-Homework-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		78EC7524FBB9F5C884A9211D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,9 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				793CDFC3245A831F00F13D09 /* ViewController.swift in Sources */,
+				793CDFE6245B4B3B00F13D09 /* UIView+Extensions.swift in Sources */,
+				793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */,
+				793CDFDC245ABD3600F13D09 /* BaseViewController.swift in Sources */,
+				793CDFE9245C3B9100F13D09 /* TitleHeaderCell.swift in Sources */,
 				793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */,
 				793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */,
+				793CDFE2245ADE5D00F13D09 /* TitleHeaderView.swift in Sources */,
+				793CDFDF245ABFAF00F13D09 /* MainViewOutlet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
