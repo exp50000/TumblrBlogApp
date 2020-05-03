@@ -64,39 +64,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="gfZ-2k-gbV" customClass="MainViewOutlet" customModule="JKO_Homework" customModuleProvider="target">
                     <connections>
-                        <outlet property="background" destination="62F-dr-Bea" id="kaD-Bs-tDL"/>
                         <outlet property="tableView" destination="fBU-wg-1JO" id="m9M-0L-xkm"/>
                     </connections>
                 </customObject>
-                <view contentMode="scaleToFill" id="62F-dr-Bea" customClass="TitleHeaderView" customModule="JKO_Homework" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="98"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bER-WH-R3N">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kz5-GW-seD">
-                                    <rect key="frame" x="186" y="25" width="42" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" red="0.4823529412" green="0.57254901960000004" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstItem="Kz5-GW-seD" firstAttribute="centerX" secondItem="bER-WH-R3N" secondAttribute="centerX" id="WWT-cD-Kjs"/>
-                                <constraint firstItem="Kz5-GW-seD" firstAttribute="top" secondItem="bER-WH-R3N" secondAttribute="top" constant="25" id="dKM-Td-UE8"/>
-                                <constraint firstAttribute="height" constant="100" id="yPw-He-9iV"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="bER-WH-R3N" firstAttribute="trailing" secondItem="Bog-tA-l9m" secondAttribute="trailing" id="Xjd-16-ISf"/>
-                        <constraint firstItem="bER-WH-R3N" firstAttribute="leading" secondItem="Bog-tA-l9m" secondAttribute="leading" id="d8D-Tz-Vug"/>
-                        <constraint firstItem="bER-WH-R3N" firstAttribute="top" secondItem="62F-dr-Bea" secondAttribute="top" id="iGO-xA-D0d"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="Bog-tA-l9m"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
         </scene>

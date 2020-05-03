@@ -11,29 +11,26 @@ import UIKit
 class MainViewController: BaseViewController {
     
     @IBOutlet weak var viewOutlet: MainViewOutlet!
+    var viewModel: MainViewModel = MainViewModel()
     
     var lastContentOffset: CGPoint = .zero
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        setupChangeListener()
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        viewOutlet.tableView.reloadData()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+        viewOutlet.setupNavigationBar(navigationController?.navigationBar)
     }
 }
 
 extension MainViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -44,8 +41,12 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Header", for: indexPath) as! TitleHeaderCell
-            cell.configure()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Header", for: indexPath) as! InfoHeaderCell
+            
+            if let info = viewModel.infoHeaderCellViewModel {
+                cell.configure(viewModel: info)
+            }
+            
             return cell
         }
         
@@ -55,42 +56,43 @@ extension MainViewController: UITableViewDataSource {
 }
 
 extension MainViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 100
+            if let info = viewModel.infoHeaderCellViewModel {
+                return info.cellHeight
+            }
+            return 120
         }
 
         return 60
     }
 }
 
-extension MainViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y <= 0 {
-            if let cell = viewOutlet.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+extension MainViewController {
+    
+    func setupChangeListener() {
+        viewModel.addChangeListener(\.apiInfoStatus) { [weak self] _ in
+            guard let self = self else {
+                return
+            }
+            
+            switch self.viewModel.apiInfoStatus {
+            case .success:
+                self.title = self.viewModel.blogerInfo?.name
                 
-                let deltaY = CGFloat(fabsf(Float(scrollView.contentOffset.y)) - fabsf(Float(lastContentOffset.y)))
-                
-                cell.frame = CGRect(
-                    x: 0.0,
-                    y: scrollView.contentOffset.y,
-                    width: cell.frame.size.width,
-                    height: cell.frame.size.height + deltaY)
-                
-                if !scrollView.isDragging && lastContentOffset.y < -61 && scrollView.contentOffset.y > -65 {
-                    scrollView.setContentOffset(CGPoint(x: 0, y: -60), animated: false)
-                    cell.frame = CGRect(
-                        x: 0.0,
-                        y: scrollView.contentOffset.y,
-                        width: cell.frame.size.width,
-                        height: 160)
-
-                    lastContentOffset = CGPoint(x: 0, y: -60)
-
-                }
-                
-                lastContentOffset = scrollView.contentOffset
+                self.viewOutlet.tableView.beginUpdates()
+                self.viewOutlet.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                self.viewOutlet.tableView.endUpdates()
+            default: return
             }
         }
+    }
+}
+
+extension MainViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        viewOutlet.updateHeader(in: scrollView, originRowHeight: viewModel.infoHeaderCellViewModel?.cellHeight ?? 120)
     }
 }

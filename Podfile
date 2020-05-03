@@ -2,7 +2,7 @@
 # platform :ios, '12.0'
 
 target 'JKO-Homework' do
-  #use_frameworks!
+  use_modular_headers!
 
   # Pods for JKO-Homework
   pod 'Alamofire'

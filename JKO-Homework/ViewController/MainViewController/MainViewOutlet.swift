@@ -13,71 +13,59 @@ class MainViewOutlet: NSObject {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-//            setupTableViewHeader()
             registerTableViewCell()
-            
-//            tableView.rowHeight = UITableView.automaticDimension
-//            tableView.estimatedRowHeight = 60
-            
-//            tableView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
         }
     }
     
-    @IBOutlet weak var background: UIView!
+    private var lastContentOffset: CGPoint = .zero
     
-    var titleHeaderView: TitleHeaderView = TitleHeaderView.FromNib()
-    
-    var constant: CGFloat = 0
+    var headerHeight: CGFloat?
 }
 
 
 extension MainViewOutlet {
     
     func registerTableViewCell() {
-        tableView.register(UINib(nibName: "TitleHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Section")
-        tableView.register(UINib(nibName: "TitleHeaderCell", bundle: nil), forCellReuseIdentifier: "Header")
-    }
-    
-    func addExtensionView(in navigationBar: UINavigationBar) {
-        
-    }
-    
-    func setupTableViewHeader() {
-        titleHeaderView.translatesAutoresizingMaskIntoConstraints = true
-        
-        titleHeaderView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100)
-
-        tableView.tableHeaderView = titleHeaderView
-        tableView.tableHeaderView?.layoutIfNeeded()
+        tableView.register(UINib(nibName: "InfoHeaderCell", bundle: nil), forCellReuseIdentifier: "Header")
     }
 }
 
 extension MainViewOutlet {
     
-    func updateHeaderView(by offset: CGFloat) {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TitleHeaderCell else {
-            return
-        }
+    func setupNavigationBar(_ navigationBar: UINavigationBar?) {
+        guard let navigationBar = navigationBar else { return }
         
-        let height = cell.refreshIndicatorHeightConstraint.constant - offset
-        if height < 0 {
-            cell.updateRefreshIndicatorHeight(0)
-        } else {
-            cell.updateRefreshIndicatorHeight(height)
-        }
-        
-        self.tableView.beginUpdates()
-        self.tableView.endUpdates()
+        let color = UIColor.white
+        navigationBar.barTintColor = color
+        navigationBar.shadowImage = UIImage()
     }
     
-    func resetHeaderView() {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TitleHeaderCell else {
-            return
+    func updateHeader(in scrollView: UIScrollView, originRowHeight: CGFloat) {
+        if scrollView.contentOffset.y <= 0 {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
+                
+                let deltaY = CGFloat(fabsf(Float(scrollView.contentOffset.y)) - fabsf(Float(lastContentOffset.y)))
+                
+                cell.frame = CGRect(
+                    x: 0.0,
+                    y: scrollView.contentOffset.y,
+                    width: cell.frame.size.width,
+                    height: cell.frame.size.height + deltaY)
+                
+                if !scrollView.isDragging && lastContentOffset.y < -61 && scrollView.contentOffset.y > -65 {
+                    scrollView.setContentOffset(CGPoint(x: 0, y: -60), animated: false)
+                    cell.frame = CGRect(
+                        x: 0.0,
+                        y: scrollView.contentOffset.y,
+                        width: cell.frame.size.width,
+                        height: originRowHeight + 60)
+
+                    lastContentOffset = CGPoint(x: 0, y: -60)
+
+                }
+                
+                lastContentOffset = scrollView.contentOffset
+            }
         }
-        
-        cell.updateRefreshIndicatorHeight(0)
-        
-        self.tableView.beginUpdates()
-        self.tableView.endUpdates()
     }
 }
