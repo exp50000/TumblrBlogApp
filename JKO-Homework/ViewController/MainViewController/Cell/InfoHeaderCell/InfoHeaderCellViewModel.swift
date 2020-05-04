@@ -10,14 +10,14 @@ import UIKit
 
 class InfoHeaderCellViewModel {
     
-    private(set) var title: String = "Untitled"
+    private(set) var title: String = ""
     private(set) var description: String = ""
     private(set) var avatar: String = ""
     
     var cellHeight: CGFloat = 120
     
     init(info: InfoModel, cellWidth: CGFloat? = UIScreen.main.bounds.width) {
-        title = info.title ?? "Untitled"
+        title = info.title ?? ""
         description = info.description ?? ""
         avatar = info.avatar?
             .sorted(by: { $0.width ?? 0 < $1.width ?? 0 })
@@ -34,11 +34,11 @@ private extension InfoHeaderCellViewModel {
         let height: CGFloat = 60
         
         let titleHeight = title.height(
-            withConstrainedWidth: width - 144,
+            with: width - 144,
             font: UIFont.systemFont(ofSize: 32, weight: .medium))
         
         let descriptionHeight = description.height(
-            withConstrainedWidth: width - 144,
+            with: width - 144,
             font: UIFont.systemFont(ofSize: 17))
         
         cellHeight = height + titleHeight + descriptionHeight

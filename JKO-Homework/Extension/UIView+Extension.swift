@@ -1,5 +1,9 @@
 //
-//  Copyright (c) 2018年 shinren.pan@gmail.com All rights reserved.
+//  UIView+Extension.swift
+//  JKO-Homework
+//
+//  Created by Ric. on 2020/5/3.
+//  Copyright © 2020 Ric. All rights reserved.
 //
 
 import UIKit

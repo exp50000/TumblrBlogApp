@@ -16,12 +16,18 @@ class MainViewModel: NSObject {
     var blogerInfo: InfoModel?
     var infoHeaderCellViewModel: InfoHeaderCellViewModel?
     
+    var posts: [PostModel] = []
+    var postCellViewModels: [PostCellViewModel] = []
+    
     @objc dynamic var apiInfoStatus: APIStatus = .none
+    
+    @objc dynamic var apiPostsStatus: APIStatus = .none
     
     override init() {
         super.init()
         
         apiGetInfo()
+        apiGetPosts()
     }
 }
 
@@ -33,6 +39,16 @@ private extension MainViewModel {
         BlogManager.GetInfo(blogID) { response in
             DispatchQueue.main.async {
                 self.handleGetInfoReponse(response)
+            }
+        }
+    }
+    
+    func apiGetPosts() {
+        apiPostsStatus = .start
+        
+        BlogManager.GetPosts(blogID, type: .text) {  response in
+            DispatchQueue.main.async {
+                self.handleGetPostsReponse(response)
             }
         }
     }
@@ -48,5 +64,30 @@ private extension MainViewModel {
         blogerInfo = response
         infoHeaderCellViewModel = InfoHeaderCellViewModel(info: response)
         apiInfoStatus = .success
+    }
+    
+    func handleGetPostsReponse(_ response: PostResponse?) {
+        guard
+            let response = response,
+            let posts = response.posts,
+            let bloger = response.blog
+        else {
+            return apiPostsStatus = .error
+        }
+        
+        guard !posts.isEmpty else {
+            return apiPostsStatus = .empty
+        }
+        
+        self.posts = posts
+        postCellViewModels = posts.compactMap({ post -> PostCellViewModel? in
+            switch post.typeEnum {
+            case .text:
+                return TextPostCellViewModel(post: post, bloger: bloger)
+            default:
+                return nil
+            }
+        })
+        apiPostsStatus = .success
     }
 }

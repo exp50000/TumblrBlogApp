@@ -27,6 +27,7 @@ extension MainViewOutlet {
     
     func registerTableViewCell() {
         tableView.register(UINib(nibName: "InfoHeaderCell", bundle: nil), forCellReuseIdentifier: "Header")
+        tableView.register(UINib(nibName: "TextPostCell", bundle: nil), forCellReuseIdentifier: "TextCell")
     }
 }
 

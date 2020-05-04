@@ -1,5 +1,5 @@
 //
-//  NSObject+Extensions.swift
+//  NSObject+Extension.swift
 //  JKO-Homework
 //
 //  Created by Ric. on 2020/5/3.

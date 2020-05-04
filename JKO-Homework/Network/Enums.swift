@@ -17,3 +17,8 @@ import Foundation
     case error
     case empty
 }
+
+enum PostType: String {
+    case unknown
+    case text = "text"
+}

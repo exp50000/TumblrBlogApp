@@ -13,9 +13,6 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var viewOutlet: MainViewOutlet!
     var viewModel: MainViewModel = MainViewModel()
     
-    var lastContentOffset: CGPoint = .zero
-    var count = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,12 +28,8 @@ class MainViewController: BaseViewController {
 
 extension MainViewController: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return viewModel.posts.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +43,9 @@ extension MainViewController: UITableViewDataSource {
             return cell
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let post = viewModel.postCellViewModels[indexPath.row - 1]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath) as! TextPostCell
+        cell.configure(viewModel: post)
         return cell
     }
 }
@@ -65,7 +60,8 @@ extension MainViewController: UITableViewDelegate {
             return 120
         }
 
-        return 60
+        let post = viewModel.postCellViewModels[indexPath.row - 1]
+        return post.cellHeight
     }
 }
 
@@ -84,6 +80,18 @@ extension MainViewController {
                 self.viewOutlet.tableView.beginUpdates()
                 self.viewOutlet.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                 self.viewOutlet.tableView.endUpdates()
+            default: return
+            }
+        }
+        
+        viewModel.addChangeListener(\.apiPostsStatus) { [weak self] _ in
+            guard let self = self else {
+                return
+            }
+            
+            switch self.viewModel.apiPostsStatus {
+            case .success:
+                self.viewOutlet.tableView.reloadData()
             default: return
             }
         }
