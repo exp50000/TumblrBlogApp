@@ -21,4 +21,64 @@ import Foundation
 enum PostType: String {
     case unknown
     case text = "text"
+    case photo = "photo"
+}
+
+enum ImageType {
+    case notSupport
+    case jpeg
+    case png
+    case gif
+    case tiff
+    
+    static func imageTypeFactory(fileName: String) -> ImageType {
+        if let extaension = URL(string: fileName.lowercased())?.pathExtension {
+            switch extaension {
+            case "jpg":
+                fallthrough
+            case "jpeg":
+                return .jpeg
+            case "png":
+                return .png
+            case "gif":
+                return .gif
+            case "tiff":
+                return .tiff
+            default:
+                break
+            }
+        }
+
+        return .notSupport
+    }
+    
+    func contentType() -> String {
+        switch self {
+        case .jpeg:
+            return "image/jpeg"
+        case .png:
+            return "image/png"
+        case .gif:
+            return "image/gif"
+        case .tiff:
+            return "image/tiff"
+        default:
+            return ""
+        }
+    }
+    
+    func fileExtension() -> String {
+        switch self {
+        case .jpeg:
+            return ".jpeg"
+        case .png:
+            return ".png"
+        case .gif:
+            return ".gif"
+        case .tiff:
+            return ".tiff"
+        default:
+            return ""
+        }
+    }
 }

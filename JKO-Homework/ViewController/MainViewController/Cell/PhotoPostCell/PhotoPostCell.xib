@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="445" id="KGk-i7-Jjw" customClass="PhotoPostCell" customModule="街口作業" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="445"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="445"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="d1z-5o-dVm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="445"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Un8-or-N3x" customClass="BlogerView" customModule="街口作業" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="vea-g4-EUI"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sbq-FI-KAJ">
+                                <rect key="frame" x="0.0" y="56" width="320" height="320"/>
+                                <color key="backgroundColor" red="0.87058823529999996" green="0.8862745098" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Sbq-FI-KAJ" secondAttribute="height" multiplier="1:1" id="Fpr-CL-py8"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nap-kn-MJU">
+                                <rect key="frame" x="0.0" y="376" width="320" height="69"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" red="0.30196079609999998" green="0.35686275360000003" blue="0.4196078479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="d1z-5o-dVm" secondAttribute="bottom" id="TOa-bV-jth"/>
+                    <constraint firstItem="d1z-5o-dVm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bMO-Cl-Krj"/>
+                    <constraint firstAttribute="trailing" secondItem="d1z-5o-dVm" secondAttribute="trailing" id="kxe-iW-7X0"/>
+                    <constraint firstItem="d1z-5o-dVm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="t8E-DU-JAA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="blogerView" destination="Un8-or-N3x" id="oeX-GP-6V5"/>
+                <outlet property="captionTextView" destination="nap-kn-MJU" id="bCA-Jq-F7c"/>
+                <outlet property="photoImageView" destination="Sbq-FI-KAJ" id="et7-dY-7X4"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="114.84375"/>
+        </tableViewCell>
+    </objects>
+</document>

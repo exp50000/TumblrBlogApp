@@ -44,7 +44,7 @@ extension MainViewController: UITableViewDataSource {
         }
         
         let post = viewModel.postCellViewModels[indexPath.row - 1]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath) as! TextPostCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoPostCell
         cell.configure(viewModel: post)
         return cell
     }

@@ -20,6 +20,15 @@
 		79097693245FB535009F36CB /* TextPostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79097692245FB535009F36CB /* TextPostCellViewModel.swift */; };
 		79097697245FC989009F36CB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79097696245FC989009F36CB /* UIColor+Extension.swift */; };
 		79097699245FDC51009F36CB /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79097698245FDC51009F36CB /* NSAttributedString+Extension.swift */; };
+		7909769B246004F2009F36CB /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909769A246004F1009F36CB /* PhotoModel.swift */; };
+		7909769F246017DF009F36CB /* AlternatePhotoSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909769E246017DF009F36CB /* AlternatePhotoSizeModel.swift */; };
+		790976A32460188D009F36CB /* PhotoPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976A12460188D009F36CB /* PhotoPostCell.swift */; };
+		790976A42460188D009F36CB /* PhotoPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976A22460188D009F36CB /* PhotoPostCell.xib */; };
+		790976A624601D31009F36CB /* PhotoPostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976A524601D31009F36CB /* PhotoPostCellViewModel.swift */; };
+		790976AA246036DB009F36CB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976A9246036DB009F36CB /* UIImageView+Extension.swift */; };
+		790976B224603B9A009F36CB /* UIImageView+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976AD24603B9A009F36CB /* UIImageView+SwiftyGif.swift */; };
+		790976B324603B9A009F36CB /* UIImage+SwiftyGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976AE24603B9A009F36CB /* UIImage+SwiftyGif.swift */; };
+		790976B424603B9A009F36CB /* SwiftyGifManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976B024603B9A009F36CB /* SwiftyGifManager.swift */; };
 		793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFBE245A831E00F13D09 /* AppDelegate.swift */; };
 		793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC0245A831F00F13D09 /* SceneDelegate.swift */; };
 		793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* MainViewController.swift */; };
@@ -61,6 +70,15 @@
 		79097692245FB535009F36CB /* TextPostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPostCellViewModel.swift; sourceTree = "<group>"; };
 		79097696245FC989009F36CB /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		79097698245FDC51009F36CB /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		7909769A246004F1009F36CB /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		7909769E246017DF009F36CB /* AlternatePhotoSizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternatePhotoSizeModel.swift; sourceTree = "<group>"; };
+		790976A12460188D009F36CB /* PhotoPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostCell.swift; sourceTree = "<group>"; };
+		790976A22460188D009F36CB /* PhotoPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPostCell.xib; sourceTree = "<group>"; };
+		790976A524601D31009F36CB /* PhotoPostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostCellViewModel.swift; sourceTree = "<group>"; };
+		790976A9246036DB009F36CB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		790976AD24603B9A009F36CB /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
+		790976AE24603B9A009F36CB /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
+		790976B024603B9A009F36CB /* SwiftyGifManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
 		793CDFBB245A831E00F13D09 /* 街口作業.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "街口作業.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBE245A831E00F13D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793CDFC0245A831F00F13D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +135,7 @@
 			children = (
 				79097690245FB4C9009F36CB /* PostCellViewModel.swift */,
 				79097682245F4306009F36CB /* TextPostCell */,
+				790976A02460185C009F36CB /* PhotoPostCell */,
 				7909767D245F2DB8009F36CB /* InfoHeaderCell */,
 			);
 			path = Cell;
@@ -150,6 +169,34 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		790976A02460185C009F36CB /* PhotoPostCell */ = {
+			isa = PBXGroup;
+			children = (
+				790976A12460188D009F36CB /* PhotoPostCell.swift */,
+				790976A22460188D009F36CB /* PhotoPostCell.xib */,
+				790976A524601D31009F36CB /* PhotoPostCellViewModel.swift */,
+			);
+			path = PhotoPostCell;
+			sourceTree = "<group>";
+		};
+		790976AB24603B05009F36CB /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				790976AC24603B9A009F36CB /* SwiftyGif */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		790976AC24603B9A009F36CB /* SwiftyGif */ = {
+			isa = PBXGroup;
+			children = (
+				790976AD24603B9A009F36CB /* UIImageView+SwiftyGif.swift */,
+				790976AE24603B9A009F36CB /* UIImage+SwiftyGif.swift */,
+				790976B024603B9A009F36CB /* SwiftyGifManager.swift */,
+			);
+			path = SwiftyGif;
+			sourceTree = "<group>";
+		};
 		793CDFB2245A831E00F13D09 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +226,7 @@
 				793CDFD7245A941C00F13D09 /* CustomView */,
 				793CDFD8245A942D00F13D09 /* Extension */,
 				79097687245F43E1009F36CB /* Protocol */,
+				790976AB24603B05009F36CB /* Library */,
 				793CDFD2245A87DA00F13D09 /* Support */,
 			);
 			path = "JKO-Homework";
@@ -247,6 +295,7 @@
 				793CE009245EB98800F13D09 /* String+Extension.swift */,
 				79097698245FDC51009F36CB /* NSAttributedString+Extension.swift */,
 				79097696245FC989009F36CB /* UIColor+Extension.swift */,
+				790976A9246036DB009F36CB /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -306,6 +355,8 @@
 				793CDFF7245E050500F13D09 /* InfoModel.swift */,
 				793CDFF9245E05C100F13D09 /* AvatarModel.swift */,
 				7909768A245F5305009F36CB /* PostModel.swift */,
+				7909769A246004F1009F36CB /* PhotoModel.swift */,
+				7909769E246017DF009F36CB /* AlternatePhotoSizeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,6 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				790976A42460188D009F36CB /* PhotoPostCell.xib in Resources */,
 				793CDFCB245A832300F13D09 /* LaunchScreen.storyboard in Resources */,
 				793CDFC8245A832300F13D09 /* Assets.xcassets in Resources */,
 				79097681245F4141009F36CB /* BlogerView.xib in Resources */,
@@ -428,16 +480,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7909769F246017DF009F36CB /* AlternatePhotoSizeModel.swift in Sources */,
 				79097685245F432F009F36CB /* TextPostCell.swift in Sources */,
 				793CE000245E0CFD00F13D09 /* ResponseBase.swift in Sources */,
 				793CE00A245EB98800F13D09 /* String+Extension.swift in Sources */,
+				790976B324603B9A009F36CB /* UIImage+SwiftyGif.swift in Sources */,
 				793CDFE6245B4B3B00F13D09 /* UIView+Extension.swift in Sources */,
 				7909767F245F4132009F36CB /* BlogerView.swift in Sources */,
 				79097699245FDC51009F36CB /* NSAttributedString+Extension.swift in Sources */,
+				7909769B246004F2009F36CB /* PhotoModel.swift in Sources */,
+				790976AA246036DB009F36CB /* UIImageView+Extension.swift in Sources */,
 				7909768B245F5305009F36CB /* PostModel.swift in Sources */,
 				793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */,
+				790976B224603B9A009F36CB /* UIImageView+SwiftyGif.swift in Sources */,
 				79097693245FB535009F36CB /* TextPostCellViewModel.swift in Sources */,
 				793CDFFA245E05C100F13D09 /* AvatarModel.swift in Sources */,
+				790976A32460188D009F36CB /* PhotoPostCell.swift in Sources */,
+				790976B424603B9A009F36CB /* SwiftyGifManager.swift in Sources */,
 				79097697245FC989009F36CB /* UIColor+Extension.swift in Sources */,
 				793CDFDC245ABD3600F13D09 /* BaseViewController.swift in Sources */,
 				793CDFE9245C3B9100F13D09 /* InfoHeaderCell.swift in Sources */,
@@ -447,6 +506,7 @@
 				7909767B245ED502009F36CB /* InfoHeaderCellViewModel.swift in Sources */,
 				793CE002245E0D9C00F13D09 /* InfoResponse.swift in Sources */,
 				793CE008245EA0B100F13D09 /* NSObject+Extension.swift in Sources */,
+				790976A624601D31009F36CB /* PhotoPostCellViewModel.swift in Sources */,
 				793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */,
 				793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */,
 				793CDFF0245DF84D00F13D09 /* BlogRouter.swift in Sources */,

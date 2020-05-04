@@ -46,7 +46,7 @@ private extension MainViewModel {
     func apiGetPosts() {
         apiPostsStatus = .start
         
-        BlogManager.GetPosts(blogID, type: .text) {  response in
+        BlogManager.GetPosts(blogID, type: .photo) {  response in
             DispatchQueue.main.async {
                 self.handleGetPostsReponse(response)
             }
@@ -84,6 +84,8 @@ private extension MainViewModel {
             switch post.typeEnum {
             case .text:
                 return TextPostCellViewModel(post: post, bloger: bloger)
+            case .photo:
+                return PhotoPostCellViewModel(post: post, bloger: bloger)
             default:
                 return nil
             }

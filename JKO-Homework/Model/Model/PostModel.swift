@@ -70,6 +70,15 @@ class PostModel: ModelBase {
     /// The full post body
     var body: String?
     
+    
+    // MARK: - Photo Post
+    
+    /// The user-supplied caption
+    var caption: String?
+    
+    /// Photo objects with properties
+    var photos: [PhotoModel]?
+    
 }
 
 extension PostModel {

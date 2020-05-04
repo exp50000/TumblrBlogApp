@@ -19,11 +19,6 @@ class TextPostCell: UITableViewCell {
     @IBOutlet weak var readMoreView: UIView!
     
     var viewModel: TextPostCellViewModel?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
 }
 
 extension TextPostCell {
