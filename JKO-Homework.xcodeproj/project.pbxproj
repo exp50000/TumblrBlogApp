@@ -64,6 +64,9 @@
 		7909770D2461E4F5009F36CB /* ChatPostDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7909770B2461E4F5009F36CB /* ChatPostDetailCell.xib */; };
 		7909770F2461E65F009F36CB /* ChatPostDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909770E2461E65E009F36CB /* ChatPostDetailCellViewModel.swift */; };
 		790977112461F8F7009F36CB /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977102461F8F7009F36CB /* ContentSizedTableView.swift */; };
+		790977132461FD46009F36CB /* PostCellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977122461FD46009F36CB /* PostCellConfigurable.swift */; };
+		790977152461FF9D009F36CB /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977142461FF9D009F36CB /* UITableViewCell+Extension.swift */; };
+		7909771724620316009F36CB /* PostDetailCellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909771624620316009F36CB /* PostDetailCellConfigurable.swift */; };
 		793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFBE245A831E00F13D09 /* AppDelegate.swift */; };
 		793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC0245A831F00F13D09 /* SceneDelegate.swift */; };
 		793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* MainViewController.swift */; };
@@ -149,6 +152,9 @@
 		7909770B2461E4F5009F36CB /* ChatPostDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPostDetailCell.xib; sourceTree = "<group>"; };
 		7909770E2461E65E009F36CB /* ChatPostDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPostDetailCellViewModel.swift; sourceTree = "<group>"; };
 		790977102461F8F7009F36CB /* ContentSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
+		790977122461FD46009F36CB /* PostCellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellConfigurable.swift; sourceTree = "<group>"; };
+		790977142461FF9D009F36CB /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		7909771624620316009F36CB /* PostDetailCellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailCellConfigurable.swift; sourceTree = "<group>"; };
 		793CDFBB245A831E00F13D09 /* 街口作業.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "街口作業.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBE245A831E00F13D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793CDFC0245A831F00F13D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +209,7 @@
 		7909767C245F2DAE009F36CB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				790977122461FD46009F36CB /* PostCellConfigurable.swift */,
 				79097690245FB4C9009F36CB /* PostCellViewModel.swift */,
 				79097682245F4306009F36CB /* TextPostCell */,
 				790976A02460185C009F36CB /* PhotoPostCell */,
@@ -333,12 +340,13 @@
 		790976E124616675009F36CB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				790977092461E4C8009F36CB /* ChatPostDetailCell */,
 				790976E22461669D009F36CB /* PostDetailCellViewModel.swift */,
+				7909771624620316009F36CB /* PostDetailCellConfigurable.swift */,
 				790976E424616C72009F36CB /* TextPostDetailCell */,
 				790976F42461B2F5009F36CB /* PhotoPostDetailCell */,
 				790976FB2461CBA4009F36CB /* QuotePostDetailCell */,
 				790977022461D88F009F36CB /* LinkPostDetailCell */,
+				790977092461E4C8009F36CB /* ChatPostDetailCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -506,6 +514,7 @@
 				79097696245FC989009F36CB /* UIColor+Extension.swift */,
 				790976A9246036DB009F36CB /* UIImageView+Extension.swift */,
 				790976F224617DD7009F36CB /* UIViewController+Extension.swift */,
+				790977142461FF9D009F36CB /* UITableViewCell+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -708,6 +717,7 @@
 				790976B324603B9A009F36CB /* UIImage+SwiftyGif.swift in Sources */,
 				790976BC246081A1009F36CB /* QuotePostCellViewModel.swift in Sources */,
 				7909770C2461E4F5009F36CB /* ChatPostDetailCell.swift in Sources */,
+				7909771724620316009F36CB /* PostDetailCellConfigurable.swift in Sources */,
 				793CDFE6245B4B3B00F13D09 /* UIView+Extension.swift in Sources */,
 				7909767F245F4132009F36CB /* BlogerView.swift in Sources */,
 				790976D2246132DC009F36CB /* ChatPostCellViewModel.swift in Sources */,
@@ -757,8 +767,10 @@
 				790976D82461544D009F36CB /* ChatCell.swift in Sources */,
 				790977082461D92F009F36CB /* LinkPostDetailCellViewModel.swift in Sources */,
 				790976E724616CB0009F36CB /* TextPostDetailCell.swift in Sources */,
+				790977132461FD46009F36CB /* PostCellConfigurable.swift in Sources */,
 				793CDFF2245DFBFA00F13D09 /* APIRouterHelper.swift in Sources */,
 				7909768F245F56E8009F36CB /* PostResponse.swift in Sources */,
+				790977152461FF9D009F36CB /* UITableViewCell+Extension.swift in Sources */,
 				793CDFF8245E050500F13D09 /* InfoModel.swift in Sources */,
 				793CDFEE245DCA2500F13D09 /* BaseConfig.swift in Sources */,
 				793CE006245E9CC800F13D09 /* Enums.swift in Sources */,

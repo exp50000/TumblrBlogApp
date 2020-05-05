@@ -23,10 +23,10 @@ class DetailViewOutlet: NSObject {
 extension DetailViewOutlet {
     
     func registerTabelViewCell() {
-        tableView.register(UINib(nibName: "TextPostDetailCell", bundle: nil), forCellReuseIdentifier: "TextCell")
-        tableView.register(UINib(nibName: "PhotoPostDetailCell", bundle: nil), forCellReuseIdentifier: "PhotoCell")
-        tableView.register(UINib(nibName: "QuotePostDetailCell", bundle: nil), forCellReuseIdentifier: "QuoteCell")
-        tableView.register(UINib(nibName: "LinkPostDetailCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
-        tableView.register(UINib(nibName: "ChatPostDetailCell", bundle: nil), forCellReuseIdentifier: "ChatCell")
+        tableView.register(UINib(nibName: "TextPostDetailCell", bundle: nil), forCellReuseIdentifier: TextPostDetailCell.cellIdentifier)
+        tableView.register(UINib(nibName: "PhotoPostDetailCell", bundle: nil), forCellReuseIdentifier: PhotoPostDetailCell.cellIdentifier)
+        tableView.register(UINib(nibName: "QuotePostDetailCell", bundle: nil), forCellReuseIdentifier: QuotePostDetailCell.cellIdentifier)
+        tableView.register(UINib(nibName: "LinkPostDetailCell", bundle: nil), forCellReuseIdentifier: LinkPostDetailCell.cellIdentifier)
+        tableView.register(UINib(nibName: "ChatPostDetailCell", bundle: nil), forCellReuseIdentifier: ChatPostDetailCell.cellIdentifier)
     }
 }

@@ -48,7 +48,7 @@ class QuotePostDetailCell: UITableViewCell {
     var viewModel: QuotePostDetailCellViewModel?
 }
 
-extension QuotePostDetailCell {
+extension QuotePostDetailCell: PostDetailCellConfigurable {
     
     func configure(viewModel: PostDetailCellViewModel) {
         guard let viewModel = viewModel as? QuotePostDetailCellViewModel else {

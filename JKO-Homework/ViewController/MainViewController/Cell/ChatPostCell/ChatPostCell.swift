@@ -26,7 +26,7 @@ class ChatPostCell: UITableViewCell {
     var viewModel: ChatPostCellViewModel?
 }
 
-extension ChatPostCell {
+extension ChatPostCell: PostCellConfigurable {
     
     func configure(viewModel: PostCellViewModel) {
         guard let viewModel = viewModel as? ChatPostCellViewModel else {

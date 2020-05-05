@@ -24,7 +24,7 @@ class PhotoPostDetailCell: UITableViewCell {
     var viewModel: PhotoPostDetailCellViewModel?
 }
 
-extension PhotoPostDetailCell {
+extension PhotoPostDetailCell: PostDetailCellConfigurable {
     
     func configure(viewModel: PostDetailCellViewModel) {
         

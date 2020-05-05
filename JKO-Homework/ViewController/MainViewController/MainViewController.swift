@@ -40,7 +40,7 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Header", for: indexPath) as! InfoHeaderCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: InfoHeaderCell.cellIdentifier, for: indexPath) as! InfoHeaderCell
             
             if let info = viewModel.infoHeaderCellViewModel {
                 cell.configure(viewModel: info)
@@ -50,8 +50,12 @@ extension MainViewController: UITableViewDataSource {
         }
         
         let post = viewModel.postCellViewModels[indexPath.row - 1]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatPostCell
-        cell.configure(viewModel: post)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier(for: post), for: indexPath)
+        
+        if let cell = cell as? PostCellConfigurable {
+            cell.configure(viewModel: post)
+        }
+        
         return cell
     }
 }
@@ -81,6 +85,26 @@ extension MainViewController: UITableViewDelegate {
         viewController.viewModel = DetailViewModel(blogID: viewModel.blogID, postID: cellViewModel.postID)
         
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+private extension MainViewController {
+    
+    func cellIdentifier(for viewModel: PostCellViewModel) -> String {
+        switch viewModel {
+        case is TextPostCellViewModel:
+            return TextPostCell.cellIdentifier
+        case is PhotoPostCellViewModel:
+            return PhotoPostCell.cellIdentifier
+        case is QuotePostCellViewModel:
+            return QuotePostCell.cellIdentifier
+        case is LinkPostCellViewModel:
+            return LinkPostCell.cellIdentifier
+        case is ChatPostCellViewModel:
+            return ChatPostCell.cellIdentifier
+        default:
+            fatalError("Unexpected view model type: \(viewModel)")
+        }
     }
 }
 

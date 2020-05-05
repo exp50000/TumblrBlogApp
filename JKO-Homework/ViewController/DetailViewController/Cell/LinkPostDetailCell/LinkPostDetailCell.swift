@@ -33,7 +33,7 @@ class LinkPostDetailCell: UITableViewCell {
 }
 
 
-extension LinkPostDetailCell {
+extension LinkPostDetailCell: PostDetailCellConfigurable {
     
     func configure(viewModel: PostDetailCellViewModel) {
         guard let viewModel = viewModel as? LinkPostDetailCellViewModel else {

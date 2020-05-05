@@ -26,12 +26,12 @@ class MainViewOutlet: NSObject {
 extension MainViewOutlet {
     
     func registerTableViewCell() {
-        tableView.register(UINib(nibName: "InfoHeaderCell", bundle: nil), forCellReuseIdentifier: "Header")
-        tableView.register(UINib(nibName: "TextPostCell", bundle: nil), forCellReuseIdentifier: "TextCell")
-        tableView.register(UINib(nibName: "PhotoPostCell", bundle: nil), forCellReuseIdentifier: "PhotoCell")
-        tableView.register(UINib(nibName: "QuotePostCell", bundle: nil), forCellReuseIdentifier: "QuoteCell")
-        tableView.register(UINib(nibName: "LinkPostCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
-        tableView.register(UINib(nibName: "ChatPostCell", bundle: nil), forCellReuseIdentifier: "ChatCell")
+        tableView.register(UINib(nibName: "InfoHeaderCell", bundle: nil), forCellReuseIdentifier: InfoHeaderCell.cellIdentifier)
+        tableView.register(UINib(nibName: "TextPostCell", bundle: nil), forCellReuseIdentifier: TextPostCell.cellIdentifier)
+        tableView.register(UINib(nibName: "PhotoPostCell", bundle: nil), forCellReuseIdentifier: PhotoPostCell.cellIdentifier)
+        tableView.register(UINib(nibName: "QuotePostCell", bundle: nil), forCellReuseIdentifier: QuotePostCell.cellIdentifier)
+        tableView.register(UINib(nibName: "LinkPostCell", bundle: nil), forCellReuseIdentifier: LinkPostCell.cellIdentifier)
+        tableView.register(UINib(nibName: "ChatPostCell", bundle: nil), forCellReuseIdentifier: ChatPostCell.cellIdentifier)
     }
 }
 

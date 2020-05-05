@@ -46,7 +46,7 @@ private extension MainViewModel {
     func apiGetPosts() {
         apiPostsStatus = .start
         
-        BlogManager.GetPosts(blogID, type: .chat) {  response in
+        BlogManager.GetPosts(blogID) {  response in
             DispatchQueue.main.async {
                 self.handleGetPostsReponse(response)
             }

@@ -30,7 +30,7 @@ class LinkPostCell: UITableViewCell {
 }
 
 
-extension LinkPostCell {
+extension LinkPostCell: PostCellConfigurable {
     
     func configure(viewModel: PostCellViewModel) {
         guard let viewModel = viewModel as? LinkPostCellViewModel else {

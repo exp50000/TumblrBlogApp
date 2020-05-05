@@ -33,7 +33,7 @@ class PhotoPostCell: UITableViewCell {
     }
 }
 
-extension PhotoPostCell {
+extension PhotoPostCell: PostCellConfigurable {
     
     func configure(viewModel: PostCellViewModel) {
         guard let viewModel = viewModel as? PhotoPostCellViewModel else {

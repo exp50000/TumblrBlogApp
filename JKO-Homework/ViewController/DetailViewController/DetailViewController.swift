@@ -27,13 +27,37 @@ extension DetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatPostDetailCell
+        guard let cellViewModel = viewModel?.cellViewModel else {
+            return UITableViewCell()
+        }
         
-        if let cellViewModel = viewModel?.cellViewModel {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier(for: cellViewModel), for: indexPath)
+        
+        if let cell = cell as? PostDetailCellConfigurable {
             cell.configure(viewModel: cellViewModel)
         }
         
         return cell
+    }
+}
+
+private extension DetailViewController {
+    
+    func cellIdentifier(for viewModel: PostDetailCellViewModel) -> String {
+        switch viewModel {
+        case is TextPostDetailCellViewModel:
+            return TextPostDetailCell.cellIdentifier
+        case is PhotoPostDetailCellViewModel:
+            return PhotoPostDetailCell.cellIdentifier
+        case is QuotePostDetailCellViewModel:
+            return QuotePostDetailCell.cellIdentifier
+        case is LinkPostDetailCellViewModel:
+            return LinkPostDetailCell.cellIdentifier
+        case is ChatPostDetailCellViewModel:
+            return ChatPostDetailCell.cellIdentifier
+        default:
+            fatalError("Unexpected view model type: \(viewModel)")
+        }
     }
 }
 

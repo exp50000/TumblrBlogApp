@@ -21,7 +21,7 @@ class TextPostCell: UITableViewCell {
     var viewModel: TextPostCellViewModel?
 }
 
-extension TextPostCell {
+extension TextPostCell: PostCellConfigurable {
     
     func configure(viewModel: PostCellViewModel) {
         guard let viewModel = viewModel as? TextPostCellViewModel else {
