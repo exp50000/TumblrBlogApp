@@ -50,7 +50,7 @@ extension MainViewController: UITableViewDataSource {
         }
         
         let post = viewModel.postCellViewModels[indexPath.row - 1]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell", for: indexPath) as! QuotePostCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LinkCell", for: indexPath) as! LinkPostCell
         cell.configure(viewModel: post)
         return cell
     }

@@ -27,7 +27,7 @@ extension DetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell", for: indexPath) as! QuotePostDetailCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LinkCell", for: indexPath) as! LinkPostDetailCell
         
         if let cellViewModel = viewModel?.cellViewModel {
             cell.configure(viewModel: cellViewModel)

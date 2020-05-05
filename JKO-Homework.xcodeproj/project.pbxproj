@@ -57,6 +57,9 @@
 		790976FE2461CC28009F36CB /* QuotePostDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976FC2461CC28009F36CB /* QuotePostDetailCell.swift */; };
 		790976FF2461CC28009F36CB /* QuotePostDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976FD2461CC28009F36CB /* QuotePostDetailCell.xib */; };
 		790977012461CE00009F36CB /* QuotePostDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977002461CE00009F36CB /* QuotePostDetailCellViewModel.swift */; };
+		790977052461D8CB009F36CB /* LinkPostDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977032461D8CB009F36CB /* LinkPostDetailCell.swift */; };
+		790977062461D8CB009F36CB /* LinkPostDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790977042461D8CB009F36CB /* LinkPostDetailCell.xib */; };
+		790977082461D92F009F36CB /* LinkPostDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977072461D92F009F36CB /* LinkPostDetailCellViewModel.swift */; };
 		793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFBE245A831E00F13D09 /* AppDelegate.swift */; };
 		793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC0245A831F00F13D09 /* SceneDelegate.swift */; };
 		793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* MainViewController.swift */; };
@@ -135,6 +138,9 @@
 		790976FC2461CC28009F36CB /* QuotePostDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePostDetailCell.swift; sourceTree = "<group>"; };
 		790976FD2461CC28009F36CB /* QuotePostDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuotePostDetailCell.xib; sourceTree = "<group>"; };
 		790977002461CE00009F36CB /* QuotePostDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePostDetailCellViewModel.swift; sourceTree = "<group>"; };
+		790977032461D8CB009F36CB /* LinkPostDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkPostDetailCell.swift; sourceTree = "<group>"; };
+		790977042461D8CB009F36CB /* LinkPostDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkPostDetailCell.xib; sourceTree = "<group>"; };
+		790977072461D92F009F36CB /* LinkPostDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkPostDetailCellViewModel.swift; sourceTree = "<group>"; };
 		793CDFBB245A831E00F13D09 /* 街口作業.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "街口作業.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBE245A831E00F13D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793CDFC0245A831F00F13D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -319,6 +325,7 @@
 		790976E124616675009F36CB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				790977022461D88F009F36CB /* LinkPostDetailCell */,
 				790976E22461669D009F36CB /* PostDetailCellViewModel.swift */,
 				790976E424616C72009F36CB /* TextPostDetailCell */,
 				790976F42461B2F5009F36CB /* PhotoPostDetailCell */,
@@ -364,6 +371,16 @@
 				790977002461CE00009F36CB /* QuotePostDetailCellViewModel.swift */,
 			);
 			path = QuotePostDetailCell;
+			sourceTree = "<group>";
+		};
+		790977022461D88F009F36CB /* LinkPostDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				790977032461D8CB009F36CB /* LinkPostDetailCell.swift */,
+				790977042461D8CB009F36CB /* LinkPostDetailCell.xib */,
+				790977072461D92F009F36CB /* LinkPostDetailCellViewModel.swift */,
+			);
+			path = LinkPostDetailCell;
 			sourceTree = "<group>";
 		};
 		793CDFB2245A831E00F13D09 = {
@@ -624,6 +641,7 @@
 				790976E824616CB0009F36CB /* TextPostDetailCell.xib in Resources */,
 				79097686245F432F009F36CB /* TextPostCell.xib in Resources */,
 				790976BA24607BF9009F36CB /* QuotePostCell.xib in Resources */,
+				790977062461D8CB009F36CB /* LinkPostDetailCell.xib in Resources */,
 				793CDFC6245A831F00F13D09 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,6 +696,7 @@
 				793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */,
 				790976B224603B9A009F36CB /* UIImageView+SwiftyGif.swift in Sources */,
 				790976E32461669D009F36CB /* PostDetailCellViewModel.swift in Sources */,
+				790977052461D8CB009F36CB /* LinkPostDetailCell.swift in Sources */,
 				79097693245FB535009F36CB /* TextPostCellViewModel.swift in Sources */,
 				790976DE246160DE009F36CB /* DetailViewOutlet.swift in Sources */,
 				793CDFFA245E05C100F13D09 /* AvatarModel.swift in Sources */,
@@ -712,6 +731,7 @@
 				793CE004245E9B6300F13D09 /* MainViewModel.swift in Sources */,
 				790976C224610574009F36CB /* LinkPostCell.swift in Sources */,
 				790976D82461544D009F36CB /* ChatCell.swift in Sources */,
+				790977082461D92F009F36CB /* LinkPostDetailCellViewModel.swift in Sources */,
 				790976E724616CB0009F36CB /* TextPostDetailCell.swift in Sources */,
 				793CDFF2245DFBFA00F13D09 /* APIRouterHelper.swift in Sources */,
 				7909768F245F56E8009F36CB /* PostResponse.swift in Sources */,

@@ -46,7 +46,7 @@ private extension MainViewModel {
     func apiGetPosts() {
         apiPostsStatus = .start
         
-        BlogManager.GetPosts(blogID, type: .quote) {  response in
+        BlogManager.GetPosts(blogID, type: .link) {  response in
             DispatchQueue.main.async {
                 self.handleGetPostsReponse(response)
             }
