@@ -28,10 +28,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMg-gR-yzP">
-                                <rect key="frame" x="0.0" y="56" width="320" height="356"/>
+                                <rect key="frame" x="0.0" y="56" width="320" height="332"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="opy-Kj-cgd">
-                                        <rect key="frame" x="15" y="8" width="285" height="333"/>
+                                        <rect key="frame" x="15" y="8" width="285" height="309"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aYV-4r-SA1">
                                                 <rect key="frame" x="0.0" y="0.0" width="285" height="40"/>
@@ -41,7 +41,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3OY-8N-15b">
-                                                <rect key="frame" x="0.0" y="46" width="285" height="287"/>
+                                                <rect key="frame" x="0.0" y="46" width="285" height="263"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" red="0.30196079609999998" green="0.35686275360000003" blue="0.4196078479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -59,10 +59,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0c-ia-Vsx" customClass="ShortUrlView" customModule="街口作業" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="412" width="320" height="46"/>
+                                <rect key="frame" x="0.0" y="388" width="320" height="70"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="WOr-0Q-mOr"/>
+                                    <constraint firstAttribute="height" constant="70" id="WOr-0Q-mOr"/>
                                 </constraints>
                             </view>
                         </subviews>

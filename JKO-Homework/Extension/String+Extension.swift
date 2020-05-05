@@ -85,8 +85,10 @@ extension String {
 
 extension String {
     
-    func toLocalDateString(_ inputFormat: String, _ outputFormat: String) -> String?
-    {
+    func toLocalDateString(
+        _ inputFormat: String = "yyyy-MM-dd HH:mm:ss Z",
+        _ outputFormat: String = "yyyy/MM/dd HH:mm") -> String? {
+        
         let dateFormatter = Foundation.DateFormatter()
         dateFormatter.dateFormat = inputFormat
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
@@ -94,6 +96,7 @@ extension String {
         guard let localDate = dateFormatter.date(from: self) else { return nil }
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.dateFormat = outputFormat
+        
         return dateFormatter.string(from: localDate)
     }
 }

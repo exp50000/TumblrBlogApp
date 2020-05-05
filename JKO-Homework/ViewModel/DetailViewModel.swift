@@ -65,8 +65,7 @@ extension DetailViewModel {
             case .photo:
                 return PhotoPostDetailCellViewModel(post: post, bloger: bloger)
             case .quote:
-//                return QuotePostCellViewModel(post: post, bloger: bloger)
-                break
+                return QuotePostDetailCellViewModel(post: post, bloger: bloger)
             case .link:
 //                return LinkPostCellViewModel(post: post, bloger: bloger)
                 break

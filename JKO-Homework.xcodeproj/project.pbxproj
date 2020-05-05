@@ -54,6 +54,9 @@
 		790976F72461B33D009F36CB /* PhotoPostDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976F52461B33D009F36CB /* PhotoPostDetailCell.swift */; };
 		790976F82461B33D009F36CB /* PhotoPostDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976F62461B33D009F36CB /* PhotoPostDetailCell.xib */; };
 		790976FA2461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976F92461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift */; };
+		790976FE2461CC28009F36CB /* QuotePostDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976FC2461CC28009F36CB /* QuotePostDetailCell.swift */; };
+		790976FF2461CC28009F36CB /* QuotePostDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976FD2461CC28009F36CB /* QuotePostDetailCell.xib */; };
+		790977012461CE00009F36CB /* QuotePostDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977002461CE00009F36CB /* QuotePostDetailCellViewModel.swift */; };
 		793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFBE245A831E00F13D09 /* AppDelegate.swift */; };
 		793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC0245A831F00F13D09 /* SceneDelegate.swift */; };
 		793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* MainViewController.swift */; };
@@ -129,6 +132,9 @@
 		790976F52461B33D009F36CB /* PhotoPostDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostDetailCell.swift; sourceTree = "<group>"; };
 		790976F62461B33D009F36CB /* PhotoPostDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPostDetailCell.xib; sourceTree = "<group>"; };
 		790976F92461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostDetailCellViewModel.swift; sourceTree = "<group>"; };
+		790976FC2461CC28009F36CB /* QuotePostDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePostDetailCell.swift; sourceTree = "<group>"; };
+		790976FD2461CC28009F36CB /* QuotePostDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuotePostDetailCell.xib; sourceTree = "<group>"; };
+		790977002461CE00009F36CB /* QuotePostDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePostDetailCellViewModel.swift; sourceTree = "<group>"; };
 		793CDFBB245A831E00F13D09 /* 街口作業.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "街口作業.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBE245A831E00F13D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793CDFC0245A831F00F13D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -316,6 +322,7 @@
 				790976E22461669D009F36CB /* PostDetailCellViewModel.swift */,
 				790976E424616C72009F36CB /* TextPostDetailCell */,
 				790976F42461B2F5009F36CB /* PhotoPostDetailCell */,
+				790976FB2461CBA4009F36CB /* QuotePostDetailCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -347,6 +354,16 @@
 				790976F92461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift */,
 			);
 			path = PhotoPostDetailCell;
+			sourceTree = "<group>";
+		};
+		790976FB2461CBA4009F36CB /* QuotePostDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				790976FC2461CC28009F36CB /* QuotePostDetailCell.swift */,
+				790976FD2461CC28009F36CB /* QuotePostDetailCell.xib */,
+				790977002461CE00009F36CB /* QuotePostDetailCellViewModel.swift */,
+			);
+			path = QuotePostDetailCell;
 			sourceTree = "<group>";
 		};
 		793CDFB2245A831E00F13D09 = {
@@ -603,6 +620,7 @@
 				79097681245F4141009F36CB /* BlogerView.xib in Resources */,
 				790976CC24611E57009F36CB /* ChatPostCell.xib in Resources */,
 				793CDFEA245C3B9100F13D09 /* InfoHeaderCell.xib in Resources */,
+				790976FF2461CC28009F36CB /* QuotePostDetailCell.xib in Resources */,
 				790976E824616CB0009F36CB /* TextPostDetailCell.xib in Resources */,
 				79097686245F432F009F36CB /* TextPostCell.xib in Resources */,
 				790976BA24607BF9009F36CB /* QuotePostCell.xib in Resources */,
@@ -643,6 +661,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7909769F246017DF009F36CB /* PhotoSizeModel.swift in Sources */,
+				790976FE2461CC28009F36CB /* QuotePostDetailCell.swift in Sources */,
 				79097685245F432F009F36CB /* TextPostCell.swift in Sources */,
 				793CE000245E0CFD00F13D09 /* ResponseBase.swift in Sources */,
 				790976CB24611E57009F36CB /* ChatPostCell.swift in Sources */,
@@ -678,6 +697,7 @@
 				79097691245FB4C9009F36CB /* PostCellViewModel.swift in Sources */,
 				790976FA2461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift in Sources */,
 				7909767B245ED502009F36CB /* InfoHeaderCellViewModel.swift in Sources */,
+				790977012461CE00009F36CB /* QuotePostDetailCellViewModel.swift in Sources */,
 				793CE002245E0D9C00F13D09 /* InfoResponse.swift in Sources */,
 				790976E024616322009F36CB /* DetailViewModel.swift in Sources */,
 				793CE008245EA0B100F13D09 /* NSObject+Extension.swift in Sources */,

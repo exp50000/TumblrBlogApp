@@ -35,7 +35,7 @@ class PhotoPostDetailCellViewModel: PostDetailCellViewModel {
         
         caption = post.caption?.htmlToAttributedString ?? NSAttributedString()
         shortUrl = post.short_url ?? ""
-        postDate = post.date?.toLocalDateString("yyyy-MM-dd HH:mm:ss Z", "yyyy/MM/dd HH:mm") ?? ""
+        postDate = post.date?.toLocalDateString() ?? ""
         
         if let _photo = post.photos?.first?.alt_sizes?
             .first(where: { $0.width == 500 }) {
