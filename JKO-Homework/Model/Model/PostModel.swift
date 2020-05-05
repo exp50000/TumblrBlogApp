@@ -61,6 +61,8 @@ class PostModel: ModelBase {
     /// The total number of post available for this request, useful for paginating through results
     var total_posts: Int?
     
+    var short_url: String?
+    
     
     // MARK: - Text Post
     

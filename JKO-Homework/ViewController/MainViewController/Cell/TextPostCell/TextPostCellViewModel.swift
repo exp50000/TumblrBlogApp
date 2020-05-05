@@ -10,6 +10,8 @@ import UIKit
 
 class TextPostCellViewModel: PostCellViewModel {
     
+    var postID: Int
+    
     private(set) var avatar: String = ""
     private(set) var name: String = ""
     private(set) var title: String = ""
@@ -19,6 +21,7 @@ class TextPostCellViewModel: PostCellViewModel {
     
     init(post: PostModel, bloger: InfoModel) {
         
+        postID = post.id ?? -1
         avatar = bloger.avatar?
             .sorted(by: { $0.width ?? 0 < $1.width ?? 0 })
             .first?.url ?? ""
@@ -39,9 +42,7 @@ private extension TextPostCellViewModel {
             with: width - 35,
             font: UIFont.systemFont(ofSize: 20, weight: .bold))
         
-        height += body.height(
-            with: width - 35)
-        
+        height += body.height(with: width - 35)
         
         cellHeight = height > 400 ? 400 : height
     }

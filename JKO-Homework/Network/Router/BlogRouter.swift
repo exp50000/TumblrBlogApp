@@ -12,7 +12,7 @@ import Alamofire
 enum BlogRouter: URLRequestConvertible, RequestRoutable {
     case info(blogID: String)
     case avatar(blogID: String, size: Int?)
-    case posts(blogID: String, type: String?, offset: Int?, before: Int?)
+    case posts(blogID: String, postID: Int?, type: String?, offset: Int?, before: Int?)
     
     var controllerName: String {
         return "blog"
@@ -36,7 +36,7 @@ enum BlogRouter: URLRequestConvertible, RequestRoutable {
                 request += "/\(size)"
             }
             return request
-        case .posts(let blogID, let type, _, _):
+        case .posts(let blogID, _, let type, _, _):
             var request = "/\(blogID)/posts"
             if let type = type {
                 request += "/\(type)"
@@ -50,11 +50,15 @@ enum BlogRouter: URLRequestConvertible, RequestRoutable {
         case .info:
             return ["api_key": BaseConfig.accessToken]
             
-        case .posts(_, _, let offset, let before):
+        case .posts(_, let postID, _, let offset, let before):
             var parameters: [String: Any] = [
                 "api_key": BaseConfig.accessToken,
                 "limit": 20
             ]
+            
+            if let postID = postID {
+                parameters["id"] = postID
+            }
             
             if let offset = offset {
                 parameters["offset"] = offset

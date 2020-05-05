@@ -82,3 +82,18 @@ extension String {
         return ((self as NSString).substring(to: toIndex), toIndex != layoutManager.numberOfGlyphs)
     }
 }
+
+extension String {
+    
+    func toLocalDateString(_ inputFormat: String, _ outputFormat: String) -> String?
+    {
+        let dateFormatter = Foundation.DateFormatter()
+        dateFormatter.dateFormat = inputFormat
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        
+        guard let localDate = dateFormatter.date(from: self) else { return nil }
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = outputFormat
+        return dateFormatter.string(from: localDate)
+    }
+}

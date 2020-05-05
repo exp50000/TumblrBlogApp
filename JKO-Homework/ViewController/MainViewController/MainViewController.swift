@@ -10,6 +10,12 @@ import UIKit
 
 class MainViewController: BaseViewController {
     
+    struct Storyboard {
+        struct Segue {
+            static let showDetailView = "ShowDetailViewSegue"
+        }
+    }
+    
     @IBOutlet weak var viewOutlet: MainViewOutlet!
     var viewModel: MainViewModel = MainViewModel()
     
@@ -44,7 +50,7 @@ extension MainViewController: UITableViewDataSource {
         }
         
         let post = viewModel.postCellViewModels[indexPath.row - 1]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatPostCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath) as! TextPostCell
         cell.configure(viewModel: post)
         return cell
     }
@@ -62,6 +68,16 @@ extension MainViewController: UITableViewDelegate {
 
         let post = viewModel.postCellViewModels[indexPath.row - 1]
         return post.cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cellViewModel = viewModel.postCellViewModels[indexPath.row - 1]
+        let viewController = DetailViewController.FromStoryboard("Main")
+        
+        viewController.viewModel = DetailViewModel(blogID: viewModel.blogID, postID: cellViewModel.postID)
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

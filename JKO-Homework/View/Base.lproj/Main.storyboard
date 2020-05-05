@@ -34,9 +34,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5pi-c4-W81"/>
+                    <navigationItem key="navigationItem" id="5pi-c4-W81">
+                        <barButtonItem key="backBarButtonItem" title=" " id="sEf-GZ-dm9"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="viewOutlet" destination="gfZ-2k-gbV" id="2Dv-UM-yta"/>
+                        <segue destination="qzA-H7-aAR" kind="show" id="FJZ-xI-nbU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -47,6 +50,46 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="0rl-7p-Wgo">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="qzA-H7-aAR" customClass="DetailViewController" customModule="街口作業" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7lZ-05-2Tm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dxf-S8-ZKz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qzA-H7-aAR" id="Arg-cm-OIo"/>
+                                    <outlet property="delegate" destination="qzA-H7-aAR" id="Q9W-3d-Djq"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bTT-v6-jym" firstAttribute="trailing" secondItem="Dxf-S8-ZKz" secondAttribute="trailing" id="5bC-y9-kk2"/>
+                            <constraint firstItem="Dxf-S8-ZKz" firstAttribute="top" secondItem="bTT-v6-jym" secondAttribute="top" id="5yH-uw-2Uo"/>
+                            <constraint firstAttribute="bottom" secondItem="Dxf-S8-ZKz" secondAttribute="bottom" id="lCp-rw-SU2"/>
+                            <constraint firstItem="Dxf-S8-ZKz" firstAttribute="leading" secondItem="bTT-v6-jym" secondAttribute="leading" id="w3q-al-v0E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bTT-v6-jym"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gcX-x4-9JA"/>
+                    <connections>
+                        <outlet property="viewOutlet" destination="2qx-PB-M8G" id="CB5-Yt-0AM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wcH-BB-ZHl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="2qx-PB-M8G" customClass="DetailViewOutlet" customModule="街口作業" customModuleProvider="target">
+                    <connections>
+                        <outlet property="tableView" destination="Dxf-S8-ZKz" id="R6l-r4-Gae"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="2030" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cvr-vp-fhh">

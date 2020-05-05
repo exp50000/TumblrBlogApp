@@ -21,4 +21,5 @@ class InfoModel: ModelBase {
     var avatar: [InfoAvatarModel]?
     var timezone: String?
     var timezone_offset: String?
+    var url: String?
 }

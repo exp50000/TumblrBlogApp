@@ -11,6 +11,8 @@ import UIKit
 
 class LinkPostCellViewModel: PostCellViewModel {
     
+    var postID: Int
+    
     var avatar: String = ""
     var name: String = ""
     var linkTitle: String = ""
@@ -22,6 +24,7 @@ class LinkPostCellViewModel: PostCellViewModel {
        
     init(post: PostModel, bloger: InfoModel) {
         
+        postID = post.id ?? -1
         avatar = bloger.avatar?
             .sorted(by: { $0.width ?? 0 < $1.width ?? 0 })
             .first?.url ?? ""

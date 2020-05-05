@@ -10,5 +10,8 @@ import UIKit
 
 
 protocol PostCellViewModel {
+    
+    var postID: Int { get set }
+    
     var cellHeight: CGFloat { get set }
 }

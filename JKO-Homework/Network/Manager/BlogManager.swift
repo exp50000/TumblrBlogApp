@@ -42,12 +42,20 @@ class BlogManager {
     ///   - completionHandler: do something after getting the response
     public static func GetPosts(
         _ blogID: String,
+        postID: Int? = nil,
         type: PostType? = nil,
         offset: Int? = nil,
         before: Int? = nil,
         completionHandler: @escaping (PostResponse?) -> Void) {
         
-        requestData(BlogRouter.posts(blogID: blogID, type: type?.rawValue, offset: offset, before: before)) { response in
+        let urlRequest = BlogRouter.posts(
+            blogID: blogID,
+            postID: postID,
+            type: type?.rawValue,
+            offset: offset,
+            before: before)
+        
+        requestData(urlRequest) { response in
             var result: PostResponse?
             defer { completionHandler(result) }
             
