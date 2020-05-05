@@ -69,13 +69,10 @@ extension DetailViewModel {
             case .link:
                 return LinkPostDetailCellViewModel(post: post, bloger: bloger)
             case .chat:
-//                return ChatPostCellViewModel(post: post, bloger: bloger)
-                break
+                return ChatPostDetailCellViewModel(post: post, bloger: bloger)
             default:
                 return nil
             }
-            
-            return nil
         }()
         
         apiStatus = .success
