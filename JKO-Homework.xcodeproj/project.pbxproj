@@ -35,6 +35,14 @@
 		790976C224610574009F36CB /* LinkPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976C024610574009F36CB /* LinkPostCell.swift */; };
 		790976C324610574009F36CB /* LinkPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976C124610574009F36CB /* LinkPostCell.xib */; };
 		790976C524610A68009F36CB /* LinkPostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976C424610A68009F36CB /* LinkPostCellViewModel.swift */; };
+		790976C724611B8A009F36CB /* DialogueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976C624611B8A009F36CB /* DialogueModel.swift */; };
+		790976CB24611E57009F36CB /* ChatPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976C924611E57009F36CB /* ChatPostCell.swift */; };
+		790976CC24611E57009F36CB /* ChatPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976CA24611E57009F36CB /* ChatPostCell.xib */; };
+		790976CE2461211D009F36CB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976CD2461211D009F36CB /* ChatView.swift */; };
+		790976D024612267009F36CB /* ChatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976CF24612267009F36CB /* ChatView.xib */; };
+		790976D2246132DC009F36CB /* ChatPostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976D1246132DB009F36CB /* ChatPostCellViewModel.swift */; };
+		790976D82461544D009F36CB /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976D62461544D009F36CB /* ChatCell.swift */; };
+		790976D92461544D009F36CB /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976D72461544D009F36CB /* ChatCell.xib */; };
 		793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFBE245A831E00F13D09 /* AppDelegate.swift */; };
 		793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC0245A831F00F13D09 /* SceneDelegate.swift */; };
 		793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* MainViewController.swift */; };
@@ -91,6 +99,14 @@
 		790976C024610574009F36CB /* LinkPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkPostCell.swift; sourceTree = "<group>"; };
 		790976C124610574009F36CB /* LinkPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkPostCell.xib; sourceTree = "<group>"; };
 		790976C424610A68009F36CB /* LinkPostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkPostCellViewModel.swift; sourceTree = "<group>"; };
+		790976C624611B8A009F36CB /* DialogueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueModel.swift; sourceTree = "<group>"; };
+		790976C924611E57009F36CB /* ChatPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPostCell.swift; sourceTree = "<group>"; };
+		790976CA24611E57009F36CB /* ChatPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatPostCell.xib; sourceTree = "<group>"; };
+		790976CD2461211D009F36CB /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		790976CF24612267009F36CB /* ChatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatView.xib; sourceTree = "<group>"; };
+		790976D1246132DB009F36CB /* ChatPostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPostCellViewModel.swift; sourceTree = "<group>"; };
+		790976D62461544D009F36CB /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		790976D72461544D009F36CB /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		793CDFBB245A831E00F13D09 /* 街口作業.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "街口作業.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBE245A831E00F13D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793CDFC0245A831F00F13D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +166,7 @@
 				790976A02460185C009F36CB /* PhotoPostCell */,
 				790976B624607BD0009F36CB /* QuotePostCell */,
 				790976BF2461054B009F36CB /* LinkPostCell */,
+				790976C824611E0D009F36CB /* ChatPostCell */,
 				7909767D245F2DB8009F36CB /* InfoHeaderCell */,
 			);
 			path = Cell;
@@ -229,6 +246,44 @@
 				790976C424610A68009F36CB /* LinkPostCellViewModel.swift */,
 			);
 			path = LinkPostCell;
+			sourceTree = "<group>";
+		};
+		790976C824611E0D009F36CB /* ChatPostCell */ = {
+			isa = PBXGroup;
+			children = (
+				790976D524615420009F36CB /* Cell */,
+				790976C924611E57009F36CB /* ChatPostCell.swift */,
+				790976CA24611E57009F36CB /* ChatPostCell.xib */,
+				790976D1246132DB009F36CB /* ChatPostCellViewModel.swift */,
+			);
+			path = ChatPostCell;
+			sourceTree = "<group>";
+		};
+		790976D32461531A009F36CB /* BlogerView */ = {
+			isa = PBXGroup;
+			children = (
+				7909767E245F4132009F36CB /* BlogerView.swift */,
+				79097680245F4141009F36CB /* BlogerView.xib */,
+			);
+			path = BlogerView;
+			sourceTree = "<group>";
+		};
+		790976D424615333009F36CB /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				790976CD2461211D009F36CB /* ChatView.swift */,
+				790976CF24612267009F36CB /* ChatView.xib */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		790976D524615420009F36CB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				790976D62461544D009F36CB /* ChatCell.swift */,
+				790976D72461544D009F36CB /* ChatCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		793CDFB2245A831E00F13D09 = {
@@ -361,8 +416,8 @@
 		793CDFE0245ADDDF00F13D09 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				7909767E245F4132009F36CB /* BlogerView.swift */,
-				79097680245F4141009F36CB /* BlogerView.xib */,
+				790976D424615333009F36CB /* ChatView */,
+				790976D32461531A009F36CB /* BlogerView */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -391,6 +446,7 @@
 				7909768A245F5305009F36CB /* PostModel.swift */,
 				7909769A246004F1009F36CB /* PhotoModel.swift */,
 				7909769E246017DF009F36CB /* PhotoSizeModel.swift */,
+				790976C624611B8A009F36CB /* DialogueModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -473,10 +529,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				790976C324610574009F36CB /* LinkPostCell.xib in Resources */,
+				790976D92461544D009F36CB /* ChatCell.xib in Resources */,
+				790976D024612267009F36CB /* ChatView.xib in Resources */,
 				790976A42460188D009F36CB /* PhotoPostCell.xib in Resources */,
 				793CDFCB245A832300F13D09 /* LaunchScreen.storyboard in Resources */,
 				793CDFC8245A832300F13D09 /* Assets.xcassets in Resources */,
 				79097681245F4141009F36CB /* BlogerView.xib in Resources */,
+				790976CC24611E57009F36CB /* ChatPostCell.xib in Resources */,
 				793CDFEA245C3B9100F13D09 /* InfoHeaderCell.xib in Resources */,
 				79097686245F432F009F36CB /* TextPostCell.xib in Resources */,
 				790976BA24607BF9009F36CB /* QuotePostCell.xib in Resources */,
@@ -518,12 +577,15 @@
 			files = (
 				7909769F246017DF009F36CB /* PhotoSizeModel.swift in Sources */,
 				79097685245F432F009F36CB /* TextPostCell.swift in Sources */,
+				790976CE2461211D009F36CB /* ChatView.swift in Sources */,
 				793CE000245E0CFD00F13D09 /* ResponseBase.swift in Sources */,
+				790976CB24611E57009F36CB /* ChatPostCell.swift in Sources */,
 				793CE00A245EB98800F13D09 /* String+Extension.swift in Sources */,
 				790976B324603B9A009F36CB /* UIImage+SwiftyGif.swift in Sources */,
 				790976BC246081A1009F36CB /* QuotePostCellViewModel.swift in Sources */,
 				793CDFE6245B4B3B00F13D09 /* UIView+Extension.swift in Sources */,
 				7909767F245F4132009F36CB /* BlogerView.swift in Sources */,
+				790976D2246132DC009F36CB /* ChatPostCellViewModel.swift in Sources */,
 				79097699245FDC51009F36CB /* NSAttributedString+Extension.swift in Sources */,
 				7909769B246004F2009F36CB /* PhotoModel.swift in Sources */,
 				790976AA246036DB009F36CB /* UIImageView+Extension.swift in Sources */,
@@ -537,6 +599,7 @@
 				79097697245FC989009F36CB /* UIColor+Extension.swift in Sources */,
 				790976B924607BF9009F36CB /* QuotePostCell.swift in Sources */,
 				793CDFDC245ABD3600F13D09 /* BaseViewController.swift in Sources */,
+				790976C724611B8A009F36CB /* DialogueModel.swift in Sources */,
 				793CDFE9245C3B9100F13D09 /* InfoHeaderCell.swift in Sources */,
 				793CDFF6245E029000F13D09 /* Alamofire+Extension.swift in Sources */,
 				790976C524610A68009F36CB /* LinkPostCellViewModel.swift in Sources */,
@@ -553,6 +616,7 @@
 				79097689245F43FE009F36CB /* NibLoadable.swift in Sources */,
 				793CE004245E9B6300F13D09 /* MainViewModel.swift in Sources */,
 				790976C224610574009F36CB /* LinkPostCell.swift in Sources */,
+				790976D82461544D009F36CB /* ChatCell.swift in Sources */,
 				793CDFF2245DFBFA00F13D09 /* APIRouterHelper.swift in Sources */,
 				7909768F245F56E8009F36CB /* PostResponse.swift in Sources */,
 				793CDFF8245E050500F13D09 /* InfoModel.swift in Sources */,

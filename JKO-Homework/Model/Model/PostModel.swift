@@ -106,6 +106,11 @@ class PostModel: ModelBase {
     
     /// The publisher of the article the link points to
     var publisher: String?
+    
+    // MARK: - Chat Post
+    
+    /// Array of objects with the following properties:
+    var dialogue: [DialogueModel]?
 }
 
 extension PostModel {
