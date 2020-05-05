@@ -1,22 +1,24 @@
 //
-//  PhotoPostCellViewModel.swift
+//  QuotePostCellViewModel.swift
 //  JKO-Homework
 //
-//  Created by Ric. on 2020/5/4.
+//  Created by Ric. on 2020/5/5.
 //  Copyright © 2020 Ric. All rights reserved.
 //
 
 import UIKit
 
 
-class PhotoPostCellViewModel: PostCellViewModel {
+class QuotePostCellViewModel: PostCellViewModel {
     
     var avatar: String = ""
     var name: String = ""
-    var photo: String = ""
-    var caption: NSAttributedString = NSAttributedString()
+    var source: NSAttributedString = NSAttributedString()
+    var text: NSAttributedString = NSAttributedString()
     
     var cellHeight: CGFloat = 400
+    
+    var sourceHeight: CGFloat = 0
     
     init(post: PostModel, bloger: InfoModel) {
         
@@ -24,24 +26,28 @@ class PhotoPostCellViewModel: PostCellViewModel {
             .sorted(by: { $0.width ?? 0 < $1.width ?? 0 })
             .first?.url ?? ""
         name = bloger.name ?? ""
-        photo = post.photos?.first?.alt_sizes?
-            .first(where: { $0.width == 500 })?.url ?? ""
-        caption = collapsedComment(post.caption ?? "", numberOfLines: 3, width: UIScreen.main.bounds.width - 41) ?? NSAttributedString()
+        source = post.source?.htmlToAttributedString ?? NSAttributedString()
+        text = collapsedComment(post.text ?? "", numberOfLines: 3, width: UIScreen.main.bounds.width - 41) ?? NSAttributedString()
         
         calculateCellHeight(with: UIScreen.main.bounds.width)
     }
 }
 
-private extension PhotoPostCellViewModel {
+private extension QuotePostCellViewModel {
     
     func calculateCellHeight(with width: CGFloat) {
-        var height: CGFloat = 78
+        var height: CGFloat = 90
         
-        if !caption.string.isEmpty {
-            height += caption.height(with: width - 41) + 13
+        let sourceHeight = source.height(with: width - 64) + 40
+        self.sourceHeight = sourceHeight
+        if sourceHeight > width * 2 / 3 {
+            self.sourceHeight = width * 2 / 3
         }
+        height += self.sourceHeight
         
-        height += width
+        if !text.string.isEmpty {
+            height += text.height(with: width - 41) + 13
+        }
         
         cellHeight = height
     }
@@ -81,5 +87,4 @@ private extension PhotoPostCellViewModel {
         return mutableString
     }
 }
-
 

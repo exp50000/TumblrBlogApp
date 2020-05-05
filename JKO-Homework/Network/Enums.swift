@@ -20,8 +20,9 @@ import Foundation
 
 enum PostType: String {
     case unknown
-    case text = "text"
+    case text =  "text"
     case photo = "photo"
+    case quote = "quote"
 }
 
 enum ImageType {

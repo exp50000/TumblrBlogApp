@@ -23,7 +23,7 @@ class InfoHeaderCellViewModel {
             .sorted(by: { $0.width ?? 0 < $1.width ?? 0 })
             .first?.url ?? ""
         
-        calculateCellHeight(with: cellHeight)
+        calculateCellHeight(with: UIScreen.main.bounds.width)
     }
 }
 

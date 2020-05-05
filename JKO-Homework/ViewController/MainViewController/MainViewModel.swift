@@ -11,7 +11,7 @@ import Foundation
 
 class MainViewModel: NSObject {
     
-    var blogID: String = "pusheen.tumblr.com"
+    var blogID: String = "museumsandstuff.tumblr.com"//"pusheen.tumblr.com"
     
     var blogerInfo: InfoModel?
     var infoHeaderCellViewModel: InfoHeaderCellViewModel?
@@ -46,7 +46,7 @@ private extension MainViewModel {
     func apiGetPosts() {
         apiPostsStatus = .start
         
-        BlogManager.GetPosts(blogID, type: .photo) {  response in
+        BlogManager.GetPosts(blogID, type: .quote) {  response in
             DispatchQueue.main.async {
                 self.handleGetPostsReponse(response)
             }
@@ -86,6 +86,8 @@ private extension MainViewModel {
                 return TextPostCellViewModel(post: post, bloger: bloger)
             case .photo:
                 return PhotoPostCellViewModel(post: post, bloger: bloger)
+            case .quote:
+                return QuotePostCellViewModel(post: post, bloger: bloger)
             default:
                 return nil
             }

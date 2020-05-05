@@ -79,6 +79,15 @@ class PostModel: ModelBase {
     /// Photo objects with properties
     var photos: [PhotoModel]?
     
+    
+    // MARK: - Quote Post
+    
+    /// The text of the quote (can be modified by the user when posting)
+    var text: String?
+    
+    /// Full HTML for the source of the quote Example: <a href="...">Steve Jobs</a>
+    var source: String?
+    
 }
 
 extension PostModel {
