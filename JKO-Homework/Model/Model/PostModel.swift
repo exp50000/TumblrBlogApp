@@ -65,6 +65,7 @@ class PostModel: ModelBase {
     // MARK: - Text Post
     
     /// The optional title of the post
+    /// or the title of the page the link points to
     var title: String?
     
     /// The full post body
@@ -88,6 +89,23 @@ class PostModel: ModelBase {
     /// Full HTML for the source of the quote Example: <a href="...">Steve Jobs</a>
     var source: String?
     
+    
+    // MARK: - Link Post
+    
+    /// A user-supplied description
+    var description: String?
+    
+    /// The link!
+    var url: String?
+    
+    /// The author of the article the link points to
+    var link_author: String?
+    
+    /// An excerpt from the article the link points to
+    var excerpt: String?
+    
+    /// The publisher of the article the link points to
+    var publisher: String?
 }
 
 extension PostModel {

@@ -36,9 +36,9 @@ class QuotePostCellViewModel: PostCellViewModel {
 private extension QuotePostCellViewModel {
     
     func calculateCellHeight(with width: CGFloat) {
-        var height: CGFloat = 90
+        var height: CGFloat = 78
         
-        let sourceHeight = source.height(with: width - 64) + 40
+        let sourceHeight = source.height(with: width - 64) + 52
         self.sourceHeight = sourceHeight
         if sourceHeight > width * 2 / 3 {
             self.sourceHeight = width * 2 / 3
@@ -55,8 +55,13 @@ private extension QuotePostCellViewModel {
     func collapsedComment(_ string: String, numberOfLines: Int, width: CGFloat) -> NSAttributedString? {
         guard !string.isEmpty else { return nil }
         
+        var format = string.htmlToString
+        if format.first == "\n" {
+            format = String(format.dropFirst())
+        }
+        
         let mutableString = NSMutableAttributedString(
-            string: " ...... more" + string.htmlToString,
+            string: " ...... more" + format,
             attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15),
                          NSAttributedString.Key.foregroundColor: UIColor(r: 77, g: 91, b: 107)]
         )

@@ -30,6 +30,7 @@ extension MainViewOutlet {
         tableView.register(UINib(nibName: "TextPostCell", bundle: nil), forCellReuseIdentifier: "TextCell")
         tableView.register(UINib(nibName: "PhotoPostCell", bundle: nil), forCellReuseIdentifier: "PhotoCell")
         tableView.register(UINib(nibName: "QuotePostCell", bundle: nil), forCellReuseIdentifier: "QuoteCell")
+        tableView.register(UINib(nibName: "LinkPostCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
     }
 }
 

@@ -35,7 +35,10 @@ extension String {
     }
     
     var htmlToString: String {
-        return htmlToAttributedString?.string ?? ""
+        return htmlToAttributedString?.string.replacingOccurrences(
+            of: "\u{fffc}",
+            with: "",
+            options: NSString.CompareOptions.literal, range: nil).trimmingCharacters(in: .whitespaces) ?? ""
     }
 }
 

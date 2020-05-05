@@ -21,7 +21,7 @@
 		79097697245FC989009F36CB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79097696245FC989009F36CB /* UIColor+Extension.swift */; };
 		79097699245FDC51009F36CB /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79097698245FDC51009F36CB /* NSAttributedString+Extension.swift */; };
 		7909769B246004F2009F36CB /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909769A246004F1009F36CB /* PhotoModel.swift */; };
-		7909769F246017DF009F36CB /* AlternatePhotoSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909769E246017DF009F36CB /* AlternatePhotoSizeModel.swift */; };
+		7909769F246017DF009F36CB /* PhotoSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909769E246017DF009F36CB /* PhotoSizeModel.swift */; };
 		790976A32460188D009F36CB /* PhotoPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976A12460188D009F36CB /* PhotoPostCell.swift */; };
 		790976A42460188D009F36CB /* PhotoPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976A22460188D009F36CB /* PhotoPostCell.xib */; };
 		790976A624601D31009F36CB /* PhotoPostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976A524601D31009F36CB /* PhotoPostCellViewModel.swift */; };
@@ -32,6 +32,9 @@
 		790976B924607BF9009F36CB /* QuotePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976B724607BF9009F36CB /* QuotePostCell.swift */; };
 		790976BA24607BF9009F36CB /* QuotePostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976B824607BF9009F36CB /* QuotePostCell.xib */; };
 		790976BC246081A1009F36CB /* QuotePostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976BB246081A1009F36CB /* QuotePostCellViewModel.swift */; };
+		790976C224610574009F36CB /* LinkPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976C024610574009F36CB /* LinkPostCell.swift */; };
+		790976C324610574009F36CB /* LinkPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976C124610574009F36CB /* LinkPostCell.xib */; };
+		790976C524610A68009F36CB /* LinkPostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976C424610A68009F36CB /* LinkPostCellViewModel.swift */; };
 		793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFBE245A831E00F13D09 /* AppDelegate.swift */; };
 		793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC0245A831F00F13D09 /* SceneDelegate.swift */; };
 		793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* MainViewController.swift */; };
@@ -74,7 +77,7 @@
 		79097696245FC989009F36CB /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		79097698245FDC51009F36CB /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
 		7909769A246004F1009F36CB /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
-		7909769E246017DF009F36CB /* AlternatePhotoSizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternatePhotoSizeModel.swift; sourceTree = "<group>"; };
+		7909769E246017DF009F36CB /* PhotoSizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSizeModel.swift; sourceTree = "<group>"; };
 		790976A12460188D009F36CB /* PhotoPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostCell.swift; sourceTree = "<group>"; };
 		790976A22460188D009F36CB /* PhotoPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPostCell.xib; sourceTree = "<group>"; };
 		790976A524601D31009F36CB /* PhotoPostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostCellViewModel.swift; sourceTree = "<group>"; };
@@ -85,6 +88,9 @@
 		790976B724607BF9009F36CB /* QuotePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePostCell.swift; sourceTree = "<group>"; };
 		790976B824607BF9009F36CB /* QuotePostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuotePostCell.xib; sourceTree = "<group>"; };
 		790976BB246081A1009F36CB /* QuotePostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotePostCellViewModel.swift; sourceTree = "<group>"; };
+		790976C024610574009F36CB /* LinkPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkPostCell.swift; sourceTree = "<group>"; };
+		790976C124610574009F36CB /* LinkPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkPostCell.xib; sourceTree = "<group>"; };
+		790976C424610A68009F36CB /* LinkPostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkPostCellViewModel.swift; sourceTree = "<group>"; };
 		793CDFBB245A831E00F13D09 /* 街口作業.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "街口作業.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBE245A831E00F13D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793CDFC0245A831F00F13D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 				79097682245F4306009F36CB /* TextPostCell */,
 				790976A02460185C009F36CB /* PhotoPostCell */,
 				790976B624607BD0009F36CB /* QuotePostCell */,
+				790976BF2461054B009F36CB /* LinkPostCell */,
 				7909767D245F2DB8009F36CB /* InfoHeaderCell */,
 			);
 			path = Cell;
@@ -212,6 +219,16 @@
 				790976BB246081A1009F36CB /* QuotePostCellViewModel.swift */,
 			);
 			path = QuotePostCell;
+			sourceTree = "<group>";
+		};
+		790976BF2461054B009F36CB /* LinkPostCell */ = {
+			isa = PBXGroup;
+			children = (
+				790976C024610574009F36CB /* LinkPostCell.swift */,
+				790976C124610574009F36CB /* LinkPostCell.xib */,
+				790976C424610A68009F36CB /* LinkPostCellViewModel.swift */,
+			);
+			path = LinkPostCell;
 			sourceTree = "<group>";
 		};
 		793CDFB2245A831E00F13D09 = {
@@ -373,7 +390,7 @@
 				793CDFF9245E05C100F13D09 /* AvatarModel.swift */,
 				7909768A245F5305009F36CB /* PostModel.swift */,
 				7909769A246004F1009F36CB /* PhotoModel.swift */,
-				7909769E246017DF009F36CB /* AlternatePhotoSizeModel.swift */,
+				7909769E246017DF009F36CB /* PhotoSizeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -455,6 +472,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				790976C324610574009F36CB /* LinkPostCell.xib in Resources */,
 				790976A42460188D009F36CB /* PhotoPostCell.xib in Resources */,
 				793CDFCB245A832300F13D09 /* LaunchScreen.storyboard in Resources */,
 				793CDFC8245A832300F13D09 /* Assets.xcassets in Resources */,
@@ -498,7 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7909769F246017DF009F36CB /* AlternatePhotoSizeModel.swift in Sources */,
+				7909769F246017DF009F36CB /* PhotoSizeModel.swift in Sources */,
 				79097685245F432F009F36CB /* TextPostCell.swift in Sources */,
 				793CE000245E0CFD00F13D09 /* ResponseBase.swift in Sources */,
 				793CE00A245EB98800F13D09 /* String+Extension.swift in Sources */,
@@ -521,6 +539,7 @@
 				793CDFDC245ABD3600F13D09 /* BaseViewController.swift in Sources */,
 				793CDFE9245C3B9100F13D09 /* InfoHeaderCell.swift in Sources */,
 				793CDFF6245E029000F13D09 /* Alamofire+Extension.swift in Sources */,
+				790976C524610A68009F36CB /* LinkPostCellViewModel.swift in Sources */,
 				793CDFFC245E0C2D00F13D09 /* ModelBase.swift in Sources */,
 				79097691245FB4C9009F36CB /* PostCellViewModel.swift in Sources */,
 				7909767B245ED502009F36CB /* InfoHeaderCellViewModel.swift in Sources */,
@@ -533,6 +552,7 @@
 				793CDFF4245E01CC00F13D09 /* BlogManager.swift in Sources */,
 				79097689245F43FE009F36CB /* NibLoadable.swift in Sources */,
 				793CE004245E9B6300F13D09 /* MainViewModel.swift in Sources */,
+				790976C224610574009F36CB /* LinkPostCell.swift in Sources */,
 				793CDFF2245DFBFA00F13D09 /* APIRouterHelper.swift in Sources */,
 				7909768F245F56E8009F36CB /* PostResponse.swift in Sources */,
 				793CDFF8245E050500F13D09 /* InfoModel.swift in Sources */,

@@ -23,6 +23,7 @@ enum PostType: String {
     case text =  "text"
     case photo = "photo"
     case quote = "quote"
+    case link =  "link"
 }
 
 enum ImageType {

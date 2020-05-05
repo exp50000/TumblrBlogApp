@@ -1,47 +1,51 @@
 //
-//  PhotoPostCellViewModel.swift
+//  LinkPostCellViewModel.swift
 //  JKO-Homework
 //
-//  Created by Ric. on 2020/5/4.
+//  Created by Ric. on 2020/5/5.
 //  Copyright © 2020 Ric. All rights reserved.
 //
 
 import UIKit
 
 
-class PhotoPostCellViewModel: PostCellViewModel {
+class LinkPostCellViewModel: PostCellViewModel {
     
     var avatar: String = ""
     var name: String = ""
-    var photo: String = ""
-    var caption: NSAttributedString = NSAttributedString()
+    var linkTitle: String = ""
+    var linkUrl: String = ""
+    var description: NSAttributedString = NSAttributedString()
+    var linkPhoto: String = ""
     
-    var cellHeight: CGFloat = 400
-    
+    var cellHeight: CGFloat = UIScreen.main.bounds.width + 56
+       
     init(post: PostModel, bloger: InfoModel) {
         
         avatar = bloger.avatar?
             .sorted(by: { $0.width ?? 0 < $1.width ?? 0 })
             .first?.url ?? ""
         name = bloger.name ?? ""
-        photo = post.photos?.first?.alt_sizes?
-            .first(where: { $0.width == 500 })?.url ?? ""
-        caption = collapsedComment(post.caption ?? "", numberOfLines: 3, width: UIScreen.main.bounds.width - 41) ?? NSAttributedString()
+        linkTitle = post.title ?? ""
+        linkUrl = post.url ?? ""
+        description = collapsedComment(post.description ?? "", numberOfLines: 3, width: UIScreen.main.bounds.width - 41) ?? NSAttributedString()
+        
+        linkPhoto = post.photos?.first?.original_size?.url ?? ""
         
         calculateCellHeight(with: UIScreen.main.bounds.width)
     }
 }
 
-private extension PhotoPostCellViewModel {
+extension LinkPostCellViewModel {
     
     func calculateCellHeight(with width: CGFloat) {
         var height: CGFloat = 78
         
-        if !caption.string.isEmpty {
-            height += caption.height(with: width - 41) + 13
-        }
-        
         height += width
+        
+        if !description.string.isEmpty {
+            height += description.height(with: width - 41) + 13
+        }
         
         cellHeight = height
     }
@@ -86,5 +90,3 @@ private extension PhotoPostCellViewModel {
         return mutableString
     }
 }
-
-

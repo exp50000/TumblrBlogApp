@@ -1,5 +1,5 @@
 //
-//  AlternatePhotoSizeModel.swift
+//  PhotoSizeModel.swift
 //  JKO-Homework
 //
 //  Created by Ric. on 2020/5/4.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AlternatePhotoSizeModel: ModelBase {
+class PhotoSizeModel: ModelBase {
     
     /// width of the photo, in pixels
     var width: Int?

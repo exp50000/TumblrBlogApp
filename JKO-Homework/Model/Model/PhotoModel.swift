@@ -13,6 +13,9 @@ class PhotoModel: ModelBase {
     /// user supplied caption for the individual photo (Photosets only)
     var caption: String?
     
+    /// The photo at its original size
+    var original_size: PhotoSizeModel?
+    
     /// alternate photo sizes, each with:
-    var alt_sizes: [AlternatePhotoSizeModel]?
+    var alt_sizes: [PhotoSizeModel]?
 }
