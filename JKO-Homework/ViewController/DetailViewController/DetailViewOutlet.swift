@@ -24,5 +24,9 @@ extension DetailViewOutlet {
     
     func registerTabelViewCell() {
         tableView.register(UINib(nibName: "TextPostDetailCell", bundle: nil), forCellReuseIdentifier: "TextCell")
+        tableView.register(UINib(nibName: "PhotoPostDetailCell", bundle: nil), forCellReuseIdentifier: "PhotoCell")
+        tableView.register(UINib(nibName: "QuotePostDetailCell", bundle: nil), forCellReuseIdentifier: "QuoteCell")
+        tableView.register(UINib(nibName: "LinkPostDetailCell", bundle: nil), forCellReuseIdentifier: "LinkCell")
+        tableView.register(UINib(nibName: "ChatPostDetailCell", bundle: nil), forCellReuseIdentifier: "ChatCell")
     }
 }

@@ -13,4 +13,5 @@ protocol PostDetailCellViewModel {
     var avatar: String { get set }
     var name: String { get set }
     var shortUrl: String { get set }
+    var postDate: String { get set }
 }

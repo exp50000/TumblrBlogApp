@@ -50,7 +50,7 @@ extension MainViewController: UITableViewDataSource {
         }
         
         let post = viewModel.postCellViewModels[indexPath.row - 1]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath) as! TextPostCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoPostCell
         cell.configure(viewModel: post)
         return cell
     }
@@ -71,6 +71,9 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row != 0 else {
+            return
+        }
         
         let cellViewModel = viewModel.postCellViewModels[indexPath.row - 1]
         let viewController = DetailViewController.FromStoryboard("Main")

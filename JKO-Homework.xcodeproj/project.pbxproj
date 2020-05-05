@@ -51,6 +51,9 @@
 		790976ED246170DD009F36CB /* ShortUrlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976EC246170DD009F36CB /* ShortUrlView.xib */; };
 		790976EF24617AB4009F36CB /* TextPostDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976EE24617AB4009F36CB /* TextPostDetailCellViewModel.swift */; };
 		790976F324617DD7009F36CB /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976F224617DD7009F36CB /* UIViewController+Extension.swift */; };
+		790976F72461B33D009F36CB /* PhotoPostDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976F52461B33D009F36CB /* PhotoPostDetailCell.swift */; };
+		790976F82461B33D009F36CB /* PhotoPostDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790976F62461B33D009F36CB /* PhotoPostDetailCell.xib */; };
+		790976FA2461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790976F92461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift */; };
 		793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFBE245A831E00F13D09 /* AppDelegate.swift */; };
 		793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC0245A831F00F13D09 /* SceneDelegate.swift */; };
 		793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* MainViewController.swift */; };
@@ -123,6 +126,9 @@
 		790976EC246170DD009F36CB /* ShortUrlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShortUrlView.xib; sourceTree = "<group>"; };
 		790976EE24617AB4009F36CB /* TextPostDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPostDetailCellViewModel.swift; sourceTree = "<group>"; };
 		790976F224617DD7009F36CB /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		790976F52461B33D009F36CB /* PhotoPostDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostDetailCell.swift; sourceTree = "<group>"; };
+		790976F62461B33D009F36CB /* PhotoPostDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPostDetailCell.xib; sourceTree = "<group>"; };
+		790976F92461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPostDetailCellViewModel.swift; sourceTree = "<group>"; };
 		793CDFBB245A831E00F13D09 /* 街口作業.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "街口作業.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBE245A831E00F13D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793CDFC0245A831F00F13D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -309,6 +315,7 @@
 			children = (
 				790976E22461669D009F36CB /* PostDetailCellViewModel.swift */,
 				790976E424616C72009F36CB /* TextPostDetailCell */,
+				790976F42461B2F5009F36CB /* PhotoPostDetailCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -330,6 +337,16 @@
 				790976EC246170DD009F36CB /* ShortUrlView.xib */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		790976F42461B2F5009F36CB /* PhotoPostDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				790976F52461B33D009F36CB /* PhotoPostDetailCell.swift */,
+				790976F62461B33D009F36CB /* PhotoPostDetailCell.xib */,
+				790976F92461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift */,
+			);
+			path = PhotoPostDetailCell;
 			sourceTree = "<group>";
 		};
 		793CDFB2245A831E00F13D09 = {
@@ -581,6 +598,7 @@
 				790976D92461544D009F36CB /* ChatCell.xib in Resources */,
 				790976A42460188D009F36CB /* PhotoPostCell.xib in Resources */,
 				793CDFCB245A832300F13D09 /* LaunchScreen.storyboard in Resources */,
+				790976F82461B33D009F36CB /* PhotoPostDetailCell.xib in Resources */,
 				793CDFC8245A832300F13D09 /* Assets.xcassets in Resources */,
 				79097681245F4141009F36CB /* BlogerView.xib in Resources */,
 				790976CC24611E57009F36CB /* ChatPostCell.xib in Resources */,
@@ -647,6 +665,7 @@
 				790976A32460188D009F36CB /* PhotoPostCell.swift in Sources */,
 				790976DC24615AED009F36CB /* DetailViewController.swift in Sources */,
 				790976B424603B9A009F36CB /* SwiftyGifManager.swift in Sources */,
+				790976F72461B33D009F36CB /* PhotoPostDetailCell.swift in Sources */,
 				790976F324617DD7009F36CB /* UIViewController+Extension.swift in Sources */,
 				79097697245FC989009F36CB /* UIColor+Extension.swift in Sources */,
 				790976B924607BF9009F36CB /* QuotePostCell.swift in Sources */,
@@ -657,6 +676,7 @@
 				790976C524610A68009F36CB /* LinkPostCellViewModel.swift in Sources */,
 				793CDFFC245E0C2D00F13D09 /* ModelBase.swift in Sources */,
 				79097691245FB4C9009F36CB /* PostCellViewModel.swift in Sources */,
+				790976FA2461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift in Sources */,
 				7909767B245ED502009F36CB /* InfoHeaderCellViewModel.swift in Sources */,
 				793CE002245E0D9C00F13D09 /* InfoResponse.swift in Sources */,
 				790976E024616322009F36CB /* DetailViewModel.swift in Sources */,
