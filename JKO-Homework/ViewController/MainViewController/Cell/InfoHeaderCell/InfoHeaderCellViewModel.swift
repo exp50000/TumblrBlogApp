@@ -18,7 +18,7 @@ class InfoHeaderCellViewModel {
     
     init(info: InfoModel, cellWidth: CGFloat? = UIScreen.main.bounds.width) {
         title = info.title ?? ""
-        description = info.description ?? ""
+        description = info.description?.htmlToString ?? ""
         avatar = info.avatar?
             .sorted(by: { $0.width ?? 0 < $1.width ?? 0 })
             .first?.url ?? ""

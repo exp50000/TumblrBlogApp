@@ -118,6 +118,11 @@ private extension MainViewModel {
             return apiInfoStatus = .error
         }
         
+        if let index = InfoManager.blogerInfos.firstIndex(where: { $0.url == response.url }) {
+            InfoManager.blogerInfos.remove(at: index)
+        }
+        InfoManager.blogerInfos.insert(response, at: 0)
+        
         blogerInfo = response
         infoHeaderCellViewModel = InfoHeaderCellViewModel(info: response)
         apiInfoStatus = .success

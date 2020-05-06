@@ -23,3 +23,12 @@ class InfoModel: ModelBase {
     var timezone_offset: String?
     var url: String?
 }
+
+extension InfoModel {
+    
+    var blogID: String {
+        guard let url = url else { return "" }
+        let components = URLComponents(string: url)
+        return components?.host ?? ""
+    }
+}

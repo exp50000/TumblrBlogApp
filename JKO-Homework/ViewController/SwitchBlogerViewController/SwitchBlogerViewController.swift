@@ -43,6 +43,21 @@ extension SwitchBlogerViewController: UITableViewDataSource {
     }
 }
 
+extension SwitchBlogerViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let bloger = blogers[indexPath.row]
+        InfoManager.blogID = bloger.blogID
+        
+        NotificationCenter.default.post(
+            name: Notification.Name("BlogChanged"),
+            object: nil)
+        
+        dismiss(animated: true)
+    }
+}
+
 extension SwitchBlogerViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
