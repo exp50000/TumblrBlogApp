@@ -67,6 +67,9 @@
 		790977132461FD46009F36CB /* PostCellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977122461FD46009F36CB /* PostCellConfigurable.swift */; };
 		790977152461FF9D009F36CB /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977142461FF9D009F36CB /* UITableViewCell+Extension.swift */; };
 		7909771724620316009F36CB /* PostDetailCellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909771624620316009F36CB /* PostDetailCellConfigurable.swift */; };
+		7909771A2462C65E009F36CB /* SwitchBlogerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977192462C65E009F36CB /* SwitchBlogerViewController.swift */; };
+		7909771C2462C69A009F36CB /* SwitchBlogerViewOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909771B2462C69A009F36CB /* SwitchBlogerViewOutlet.swift */; };
+		7909771E2462CA1D009F36CB /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909771D2462CA1D009F36CB /* Singleton.swift */; };
 		793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFBE245A831E00F13D09 /* AppDelegate.swift */; };
 		793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC0245A831F00F13D09 /* SceneDelegate.swift */; };
 		793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* MainViewController.swift */; };
@@ -155,6 +158,9 @@
 		790977122461FD46009F36CB /* PostCellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellConfigurable.swift; sourceTree = "<group>"; };
 		790977142461FF9D009F36CB /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		7909771624620316009F36CB /* PostDetailCellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailCellConfigurable.swift; sourceTree = "<group>"; };
+		790977192462C65E009F36CB /* SwitchBlogerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchBlogerViewController.swift; sourceTree = "<group>"; };
+		7909771B2462C69A009F36CB /* SwitchBlogerViewOutlet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchBlogerViewOutlet.swift; sourceTree = "<group>"; };
+		7909771D2462CA1D009F36CB /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		793CDFBB245A831E00F13D09 /* 街口作業.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "街口作業.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBE245A831E00F13D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793CDFC0245A831F00F13D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -411,6 +417,15 @@
 			path = ChatPostDetailCell;
 			sourceTree = "<group>";
 		};
+		790977182462C625009F36CB /* SwitchBlogerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				790977192462C65E009F36CB /* SwitchBlogerViewController.swift */,
+				7909771B2462C69A009F36CB /* SwitchBlogerViewOutlet.swift */,
+			);
+			path = SwitchBlogerViewController;
+			sourceTree = "<group>";
+		};
 		793CDFB2245A831E00F13D09 = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +457,7 @@
 				79097687245F43E1009F36CB /* Protocol */,
 				790976AB24603B05009F36CB /* Library */,
 				793CDFD2245A87DA00F13D09 /* Support */,
+				7909771D2462CA1D009F36CB /* Singleton.swift */,
 			);
 			path = "JKO-Homework";
 			sourceTree = "<group>";
@@ -480,6 +496,7 @@
 		793CDFD5245A8F4300F13D09 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				790977182462C625009F36CB /* SwitchBlogerViewController */,
 				793CDFDB245ABD3600F13D09 /* BaseViewController.swift */,
 				793CDFDD245ABF6900F13D09 /* MainViewController */,
 				790976DA24615A8C009F36CB /* DetailViewController */,
@@ -709,6 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7909769F246017DF009F36CB /* PhotoSizeModel.swift in Sources */,
+				7909771C2462C69A009F36CB /* SwitchBlogerViewOutlet.swift in Sources */,
 				790976FE2461CC28009F36CB /* QuotePostDetailCell.swift in Sources */,
 				79097685245F432F009F36CB /* TextPostCell.swift in Sources */,
 				793CE000245E0CFD00F13D09 /* ResponseBase.swift in Sources */,
@@ -750,6 +768,8 @@
 				79097691245FB4C9009F36CB /* PostCellViewModel.swift in Sources */,
 				790976FA2461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift in Sources */,
 				7909767B245ED502009F36CB /* InfoHeaderCellViewModel.swift in Sources */,
+				7909771E2462CA1D009F36CB /* Singleton.swift in Sources */,
+				7909771A2462C65E009F36CB /* SwitchBlogerViewController.swift in Sources */,
 				790977012461CE00009F36CB /* QuotePostDetailCellViewModel.swift in Sources */,
 				793CE002245E0D9C00F13D09 /* InfoResponse.swift in Sources */,
 				790976E024616322009F36CB /* DetailViewModel.swift in Sources */,

@@ -16,6 +16,7 @@ extension UIImageView {
         image = nil
         switch ImageType.imageTypeFactory(fileName: url) {
         case .gif:
+            clear()
             setGifFromURL(URL(string: url)!, loopCount: -1)
         default:
             SwiftyGifManager.defaultManager.deleteImageView(self)

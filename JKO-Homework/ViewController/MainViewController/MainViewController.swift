@@ -25,6 +25,7 @@ class MainViewController: BaseViewController {
         
         setupChangeListener()
         setupNotificationObserver()
+        setupTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,8 +73,6 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath == IndexPath(row: 0, section: 0) {
             if let info = viewModel.infoHeaderCellViewModel {
@@ -107,6 +106,20 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
+extension MainViewController {
+    
+    func setupTitle() {
+        navigationItem.titleView = viewOutlet.nameButton
+    }
+    
+    @IBAction func nameButtonDidSelect(_ sender: UIButton) {
+        let viewController = SwitchBlogerViewController.FromStoryboard("Main")
+        let navigationController = UINavigationController(rootViewController: viewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
+    }
+}
+
 private extension MainViewController {
     
     func cellIdentifier(for viewModel: PostCellViewModel) -> String {
@@ -135,13 +148,13 @@ extension MainViewController {
                 return
             }
             
+            self.viewOutlet.tableView.beginUpdates()
+            self.viewOutlet.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            self.viewOutlet.tableView.endUpdates()
+            
             switch self.viewModel.apiInfoStatus {
             case .success:
-                self.title = self.viewModel.blogerInfo?.name
-                
-                self.viewOutlet.tableView.beginUpdates()
-                self.viewOutlet.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-                self.viewOutlet.tableView.endUpdates()
+                self.viewOutlet.nameButton.setTitle(self.viewModel.blogerInfo?.name, for: .normal)
             default: return
             }
         }
@@ -151,17 +164,30 @@ extension MainViewController {
                 return
             }
             
+            if self.viewOutlet.isRefreshing {
+                return
+            }
+            
+            UIView.setAnimationsEnabled(false)
+            self.viewOutlet.tableView.beginUpdates()
+            self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .none)
+            self.viewOutlet.tableView.endUpdates()
+            UIView.setAnimationsEnabled(true)
+            self.viewOutlet.tableView.layoutIfNeeded()
+        }
+        
+        viewModel.addChangeListener(\.apiMorePostsStatus) { [weak self] _ in
+            guard let self = self else {
+                return
+            }
+            
             self.viewOutlet.finishLoading()
             
-            switch self.viewModel.apiPostsStatus {
+            switch self.viewModel.apiMorePostsStatus {
             case .start:
                 self.viewOutlet.startLoading()
                 
             case .success:
-                
-                if self.viewOutlet.isRefreshing {
-                    return
-                }
                 
                 // 目前總數減掉最近新增的筆數的index，才是要插入cell的起點
                 let count = self.viewModel.postCellViewModels.count - self.viewModel.lastRequestPostCount
@@ -200,6 +226,18 @@ extension MainViewController {
                 
                 self.viewModel.getPost()
         }
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name("BlogChanged"),
+            object: nil,
+            queue: nil) { [weak self] notification in
+                guard let self = self else {
+                    return
+                }
+                
+                self.viewModel.getInfo()
+                self.viewModel.getPost()
+        }
     }
 }
 
@@ -212,15 +250,15 @@ extension MainViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
         if viewOutlet.isRefreshing {
-            
+
             UIView.setAnimationsEnabled(false)
             self.viewOutlet.tableView.beginUpdates()
             self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .none)
             self.viewOutlet.tableView.endUpdates()
             UIView.setAnimationsEnabled(true)
-            
+
             viewOutlet.tableView.layoutIfNeeded()
-            
+
             viewOutlet.stopRefreshing(scrollView)
         }
     }

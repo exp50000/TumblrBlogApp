@@ -18,6 +18,8 @@ class MainViewOutlet: NSObject {
         }
     }
     
+    @IBOutlet weak var nameButton: UIButton!
+    
     private var lastContentOffset: CGPoint = .zero
     
     var headerHeight: CGFloat?

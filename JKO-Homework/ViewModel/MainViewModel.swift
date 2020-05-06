@@ -11,7 +11,9 @@ import Foundation
 
 class MainViewModel: NSObject {
     
-    var blogID: String = "www.davidslog.com"//"pusheen.tumblr.com"
+    var blogID: String {
+        return InfoManager.blogID
+    }
     
     private(set) var blogerInfo: InfoModel?
     private(set) var infoHeaderCellViewModel: InfoHeaderCellViewModel?
@@ -30,6 +32,7 @@ class MainViewModel: NSObject {
     
     @objc dynamic var apiInfoStatus: APIStatus = .none
     @objc dynamic var apiPostsStatus: APIStatus = .none
+    @objc dynamic var apiMorePostsStatus: APIStatus = .none
     
     override init() {
         super.init()
@@ -41,6 +44,10 @@ class MainViewModel: NSObject {
 
 
 extension MainViewModel {
+    
+    func getInfo() {
+        apiGetInfo()
+    }
     
     func getPost() {
         apiGetPosts()
@@ -84,7 +91,7 @@ private extension MainViewModel {
             return
         }
         
-        apiPostsStatus = .start
+        apiMorePostsStatus = .start
         
         isFetching = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -161,11 +168,11 @@ private extension MainViewModel {
             let posts = response.posts,
             let bloger = response.blog
         else {
-            return apiPostsStatus = .error
+            return apiMorePostsStatus = .error
         }
         
         guard !posts.isEmpty else {
-            return apiPostsStatus = .empty
+            return apiMorePostsStatus = .empty
         }
         
         let viewModels = posts.compactMap({ post -> PostCellViewModel? in
@@ -195,6 +202,6 @@ private extension MainViewModel {
         }
         
         isFetching = false
-        apiPostsStatus = .success
+        apiMorePostsStatus = .success
     }
 }
