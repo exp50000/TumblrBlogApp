@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class MainViewController: BaseViewController {
     
@@ -23,6 +24,7 @@ class MainViewController: BaseViewController {
         super.viewDidLoad()
         
         setupChangeListener()
+        setupNotificationObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,12 +36,20 @@ class MainViewController: BaseViewController {
 
 extension MainViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.postCellViewModels.count + 1
+        if section == 0 {
+            return 1
+        }
+        
+        return viewModel.postCellViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if indexPath == IndexPath(row: 0, section: 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: InfoHeaderCell.cellIdentifier, for: indexPath) as! InfoHeaderCell
             
             if let info = viewModel.infoHeaderCellViewModel {
@@ -49,7 +59,7 @@ extension MainViewController: UITableViewDataSource {
             return cell
         }
         
-        let post = viewModel.postCellViewModels[indexPath.row - 1]
+        let post = viewModel.postCellViewModels[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier(for: post), for: indexPath)
         
         if let cell = cell as? PostCellConfigurable {
@@ -62,24 +72,26 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
+        if indexPath == IndexPath(row: 0, section: 0) {
             if let info = viewModel.infoHeaderCellViewModel {
                 return info.cellHeight
             }
             return 120
         }
 
-        let post = viewModel.postCellViewModels[indexPath.row - 1]
+        let post = viewModel.postCellViewModels[indexPath.row]
         return post.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.row != 0 else {
+        guard indexPath.section != 0 else {
             return
         }
         
-        let cellViewModel = viewModel.postCellViewModels[indexPath.row - 1]
+        let cellViewModel = viewModel.postCellViewModels[indexPath.row]
         let viewController = DetailViewController.FromStoryboard("Main")
         
         viewController.viewModel = DetailViewModel(blogID: viewModel.blogID, postID: cellViewModel.postID)
@@ -88,7 +100,7 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.postCellViewModels.count - 1 &&
+        if indexPath.section != 0 && indexPath.row == viewModel.postCellViewModels.count - 1 &&
            viewModel.hasMoreToFetch {
             viewModel.fetchMorePosts()
         }
@@ -147,12 +159,16 @@ extension MainViewController {
                 
             case .success:
                 
+                if self.viewOutlet.isRefreshing {
+                    return
+                }
+                
                 // 目前總數減掉最近新增的筆數的index，才是要插入cell的起點
-                let count = self.viewModel.postCellViewModels.count - self.viewModel.lastRequestPostCount + 1
+                let count = self.viewModel.postCellViewModels.count - self.viewModel.lastRequestPostCount
                 let indexPaths: [IndexPath] = {
                     var result = [IndexPath]()
                     for i in 0..<self.viewModel.lastRequestPostCount {
-                        result.append(IndexPath(row: count + i, section: 0))
+                        result.append(IndexPath(row: count + i, section: 1))
                     }
                     return result
                 }()
@@ -162,8 +178,27 @@ extension MainViewController {
                 self.viewOutlet.tableView.endUpdates()
                 
                 self.viewOutlet.tableView.layoutIfNeeded()
+                
             default: return
             }
+        }
+    }
+    
+    func setupNotificationObserver() {
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name("Refresh"),
+            object: nil,
+            queue: nil) { [weak self] notification in
+                guard let self = self else {
+                    return
+                }
+                
+                if self.viewOutlet.isRefreshing {
+                    return
+                }
+                
+                self.viewModel.getPost()
         }
     }
 }
@@ -172,5 +207,21 @@ extension MainViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         viewOutlet.updateHeader(in: scrollView, originRowHeight: viewModel.infoHeaderCellViewModel?.cellHeight ?? 120)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        if viewOutlet.isRefreshing {
+            
+            UIView.setAnimationsEnabled(false)
+            self.viewOutlet.tableView.beginUpdates()
+            self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .none)
+            self.viewOutlet.tableView.endUpdates()
+            UIView.setAnimationsEnabled(true)
+            
+            viewOutlet.tableView.layoutIfNeeded()
+            
+            viewOutlet.stopRefreshing(scrollView)
+        }
     }
 }

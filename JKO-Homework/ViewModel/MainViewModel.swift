@@ -42,14 +42,22 @@ class MainViewModel: NSObject {
 
 extension MainViewModel {
     
+    func getPost() {
+        apiGetPosts()
+    }
+    
     func fetchMorePosts() {
         apiGetMorePosts(before: before)
     }
+    
 }
 
 private extension MainViewModel {
     
     func apiGetInfo() {
+        blogerInfo = nil
+        infoHeaderCellViewModel = nil
+        
         apiInfoStatus = .start
         
         BlogManager.GetInfo(blogID) { response in
@@ -60,6 +68,8 @@ private extension MainViewModel {
     }
     
     func apiGetPosts() {
+        clearPostData()
+        
         apiPostsStatus = .start
         
         BlogManager.GetPosts(blogID) {  response in
@@ -84,6 +94,13 @@ private extension MainViewModel {
                 }
             }
         }
+    }
+    
+    func clearPostData() {
+        postCellViewModels.removeAll()
+        totalPosts = 0
+        lastRequestPostCount = 0
+        before = Int.max
     }
 }
 
@@ -166,7 +183,7 @@ private extension MainViewModel {
             case .chat:
                 return ChatPostCellViewModel(post: post, bloger: bloger)
             default:
-                return nil
+                return TextPostCellViewModel(post: post, bloger: bloger)
             }
         })
         self.postCellViewModels += viewModels
@@ -177,7 +194,7 @@ private extension MainViewModel {
             before = timestamp
         }
         
-        apiPostsStatus = .success
         isFetching = false
+        apiPostsStatus = .success
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 
 class MainViewOutlet: NSObject {
@@ -20,6 +21,8 @@ class MainViewOutlet: NSObject {
     private var lastContentOffset: CGPoint = .zero
     
     var headerHeight: CGFloat?
+    
+    private(set) var isRefreshing = false
 }
 
 
@@ -57,7 +60,21 @@ extension MainViewOutlet {
                     width: cell.frame.size.width,
                     height: cell.frame.size.height + deltaY)
                 
-                if !scrollView.isDragging && lastContentOffset.y < -61 && scrollView.contentOffset.y > -65 {
+                if !scrollView.isDecelerating &&
+                    lastContentOffset.y > -63 &&
+                    scrollView.contentOffset.y < -61 &&
+                    !isRefreshing {
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name("Refresh"), object: scrollView)
+                    isRefreshing = true
+                    
+                    vibrate()
+                }
+                
+                if !scrollView.isDragging &&
+                    lastContentOffset.y < -61 &&
+                    scrollView.contentOffset.y > -65 &&
+                    isRefreshing {
                     scrollView.setContentOffset(CGPoint(x: 0, y: -60), animated: false)
                     cell.frame = CGRect(
                         x: 0.0,
@@ -66,12 +83,21 @@ extension MainViewOutlet {
                         height: originRowHeight + 60)
 
                     lastContentOffset = CGPoint(x: 0, y: -60)
-
+                    
+                    return
                 }
                 
                 lastContentOffset = scrollView.contentOffset
             }
         }
+    }
+    
+    func stopRefreshing(_ scrollView: UIScrollView) {
+//        if isRefreshing && !scrollView.isDragging {
+        self.isRefreshing = false
+        scrollView.setContentOffset(.zero, animated: true)
+            
+//        }
     }
 }
 
@@ -87,5 +113,18 @@ extension MainViewOutlet {
     
     func finishLoading() {
         tableView.tableFooterView = nil
+    }
+}
+
+extension MainViewOutlet {
+    
+    
+}
+
+private extension MainViewOutlet {
+    func vibrate() {
+        // 1519(輕微短震動) 1520(稍大力短震動) 1521(輕微三連短震動) 1102(1519+1520) 1107(稍大力三連短震動)
+        let peek = SystemSoundID(1519)
+        AudioServicesPlaySystemSound(peek)
     }
 }
