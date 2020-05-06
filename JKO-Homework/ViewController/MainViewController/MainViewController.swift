@@ -115,7 +115,6 @@ extension MainViewController {
     @IBAction func nameButtonDidSelect(_ sender: UIButton) {
         let viewController = SwitchBlogerViewController.FromStoryboard("Main")
         let navigationController = UINavigationController(rootViewController: viewController)
-//        navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true)
     }
 }
@@ -251,15 +250,17 @@ extension MainViewController: UIScrollViewDelegate {
         
         if viewOutlet.isRefreshing {
 
-            UIView.setAnimationsEnabled(false)
-            self.viewOutlet.tableView.beginUpdates()
-            self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .none)
-            self.viewOutlet.tableView.endUpdates()
-            UIView.setAnimationsEnabled(true)
-
-            viewOutlet.tableView.layoutIfNeeded()
-
-            viewOutlet.stopRefreshing(scrollView)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                
+                UIView.performWithoutAnimation {
+                    self.viewOutlet.tableView.beginUpdates()
+                    self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .none)
+                    self.viewOutlet.tableView.endUpdates()
+                    
+                    self.viewOutlet.tableView.layoutIfNeeded()
+                }
+                self.viewOutlet.stopRefreshing(scrollView)
+            }
         }
     }
 }

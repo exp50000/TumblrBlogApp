@@ -95,11 +95,7 @@ extension MainViewOutlet {
     }
     
     func stopRefreshing(_ scrollView: UIScrollView) {
-//        if isRefreshing && !scrollView.isDragging {
         self.isRefreshing = false
-        scrollView.setContentOffset(.zero, animated: true)
-            
-//        }
     }
 }
 
