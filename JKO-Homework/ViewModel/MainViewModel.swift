@@ -24,8 +24,9 @@ class MainViewModel: NSObject {
     var hasMoreToFetch: Bool {
         return totalPosts - postCellViewModels.count > 0
     }
-    private(set) var before: Int = 0
+    private(set) var before: Int = Int.max
     
+    private var isFetching = false
     
     @objc dynamic var apiInfoStatus: APIStatus = .none
     @objc dynamic var apiPostsStatus: APIStatus = .none
@@ -69,8 +70,13 @@ private extension MainViewModel {
     }
     
     func apiGetMorePosts(before time: Int) {
+        guard !isFetching else {
+            return
+        }
+        
         apiPostsStatus = .start
         
+        isFetching = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             BlogManager.GetPosts(self.blogID, before: time) {  response in
                 DispatchQueue.main.async {
@@ -125,7 +131,9 @@ private extension MainViewModel {
         
         totalPosts = response.total_posts ?? 0
         lastRequestPostCount = postCellViewModels.count
-        before = posts.last?.timestamp ?? 0
+        if let timestamp = posts.last?.timestamp, timestamp < before {
+            before = timestamp
+        }
         
         apiPostsStatus = .success
     }
@@ -144,6 +152,8 @@ private extension MainViewModel {
         }
         
         let viewModels = posts.compactMap({ post -> PostCellViewModel? in
+            print("===== time \(post.timestamp ?? 0)")
+            
             switch post.typeEnum {
             case .text:
                 return TextPostCellViewModel(post: post, bloger: bloger)
@@ -163,8 +173,11 @@ private extension MainViewModel {
         
         lastRequestPostCount = viewModels.count
         totalPosts = response.total_posts ?? 0
-        before = posts.last?.timestamp ?? 0
+        if let timestamp = posts.last?.timestamp, timestamp < before {
+            before = timestamp
+        }
         
         apiPostsStatus = .success
+        isFetching = false
     }
 }

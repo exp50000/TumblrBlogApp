@@ -24,13 +24,6 @@ class PhotoPostCell: UITableViewCell {
     
     var viewModel: PhotoPostCellViewModel?
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        photoImageView.clear()
-        photoImageView.sd_cancelCurrentImageLoad()
-        photoImageView.image = nil
-    }
 }
 
 extension PhotoPostCell: PostCellConfigurable {
@@ -43,6 +36,7 @@ extension PhotoPostCell: PostCellConfigurable {
         self.viewModel = viewModel
         
         blogerView.setupView(name: viewModel.name, avatar: viewModel.avatar)
+        
         photoImageView.setImage(url: viewModel.photo)
         
         captionTextView.attributedText = viewModel.caption

@@ -37,8 +37,7 @@ class PhotoPostDetailCellViewModel: PostDetailCellViewModel {
         shortUrl = post.short_url ?? ""
         postDate = post.date?.toLocalDateString() ?? ""
         
-        if let _photo = post.photos?.first?.alt_sizes?
-            .first(where: { $0.width == 500 }) {
+        if let _photo = post.photos?.first?.alt_sizes?.first {
             photo = _photo.url ?? ""
             if let height = _photo.height, height > 0 {
                 photoRatio =  CGFloat(_photo.width ?? 0) / CGFloat(height)

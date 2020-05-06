@@ -28,7 +28,7 @@ class PhotoPostCellViewModel: PostCellViewModel {
             .first?.url ?? ""
         name = bloger.name ?? ""
         photo = post.photos?.first?.alt_sizes?
-            .first(where: { $0.width == 500 })?.url ?? ""
+            .filter({ $0.width ?? 0 <= 700 }).first?.url ?? ""
         caption = collapsedComment(post.caption ?? "", numberOfLines: 3, width: UIScreen.main.bounds.width - 41) ?? NSAttributedString()
         
         calculateCellHeight(with: UIScreen.main.bounds.width)

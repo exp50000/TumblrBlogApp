@@ -13,10 +13,12 @@ import SDWebImage
 extension UIImageView {
     
     func setImage(url: String) {
+        image = nil
         switch ImageType.imageTypeFactory(fileName: url) {
         case .gif:
             setGifFromURL(URL(string: url)!, loopCount: -1)
         default:
+            SwiftyGifManager.defaultManager.deleteImageView(self)
             sd_setImage(with: URL(string: url))
         }
     }
