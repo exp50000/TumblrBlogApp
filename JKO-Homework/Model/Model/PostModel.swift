@@ -58,9 +58,6 @@ class PostModel: ModelBase {
     ///  Indicates the current state of the post
     var state: String?
     
-    /// The total number of post available for this request, useful for paginating through results
-    var total_posts: Int?
-    
     var short_url: String?
     
     

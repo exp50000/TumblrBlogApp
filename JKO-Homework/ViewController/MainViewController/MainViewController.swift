@@ -86,6 +86,13 @@ extension MainViewController: UITableViewDelegate {
         
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.postCellViewModels.count - 1 &&
+           viewModel.hasMoreToFetch {
+            viewModel.fetchMorePosts()
+        }
+    }
 }
 
 private extension MainViewController {
@@ -132,9 +139,29 @@ extension MainViewController {
                 return
             }
             
+            self.viewOutlet.finishLoading()
+            
             switch self.viewModel.apiPostsStatus {
+            case .start:
+                self.viewOutlet.startLoading()
+                
             case .success:
-                self.viewOutlet.tableView.reloadData()
+                
+                // 目前總數減掉最近新增的筆數的index，才是要插入cell的起點
+                let count = self.viewModel.postCellViewModels.count - self.viewModel.lastRequestPostCount + 1
+                let indexPaths: [IndexPath] = {
+                    var result = [IndexPath]()
+                    for i in 0..<self.viewModel.lastRequestPostCount {
+                        result.append(IndexPath(row: count + i, section: 0))
+                    }
+                    return result
+                }()
+                
+                self.viewOutlet.tableView.beginUpdates()
+                self.viewOutlet.tableView.insertRows(at: indexPaths, with: .fade)
+                self.viewOutlet.tableView.endUpdates()
+                
+                self.viewOutlet.tableView.layoutIfNeeded()
             default: return
             }
         }

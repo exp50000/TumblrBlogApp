@@ -74,3 +74,18 @@ extension MainViewOutlet {
         }
     }
 }
+
+extension MainViewOutlet {
+    
+    func startLoading() {
+        tableView.tableFooterView = {
+            let result = UIActivityIndicatorView(style: .gray)
+            result.startAnimating()
+            return result
+        }()
+    }
+    
+    func finishLoading() {
+        tableView.tableFooterView = nil
+    }
+}

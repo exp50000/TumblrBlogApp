@@ -40,7 +40,9 @@ class PhotoPostDetailCellViewModel: PostDetailCellViewModel {
         if let _photo = post.photos?.first?.alt_sizes?
             .first(where: { $0.width == 500 }) {
             photo = _photo.url ?? ""
-            photoRatio =  CGFloat(_photo.width ?? 0) / CGFloat(_photo.height ?? 0)
+            if let height = _photo.height, height > 0 {
+                photoRatio =  CGFloat(_photo.width ?? 0) / CGFloat(height)
+            }
         }
     }
 }

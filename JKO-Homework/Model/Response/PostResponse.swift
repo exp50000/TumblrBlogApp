@@ -12,4 +12,7 @@ import Foundation
 class PostResponse: ModelBase {
     var blog: InfoModel?
     var posts: [PostModel]?
+    
+    /// The total number of post available for this request, useful for paginating through results
+    var total_posts: Int?
 }
