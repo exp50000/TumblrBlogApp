@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="508" id="KGk-i7-Jjw" customClass="QuotePostCell" customModule="街口作業" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="508"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="508"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qXy-zC-jaX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="508"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vmb-TW-6Rx" customClass="BlogerView" customModule="街口作業" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="3z2-Vq-Jx4"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xmI-0i-iVz">
+                                <rect key="frame" x="0.0" y="56" width="320" height="376"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qg2-mw-N9a">
+                                        <rect key="frame" x="20" y="15" width="280" height="361"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xr5-zF-ySE">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="361"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient2" translatesAutoresizingMaskIntoConstraints="NO" id="5XI-1B-OMh">
+                                                <rect key="frame" x="0.0" y="311" width="280" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="zXX-Jy-AD2"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="xr5-zF-ySE" secondAttribute="trailing" id="2Q3-4U-OMP"/>
+                                            <constraint firstItem="xr5-zF-ySE" firstAttribute="leading" secondItem="qg2-mw-N9a" secondAttribute="leading" id="6Z6-oc-Rfu"/>
+                                            <constraint firstItem="5XI-1B-OMh" firstAttribute="leading" secondItem="qg2-mw-N9a" secondAttribute="leading" id="7hj-5K-rwu"/>
+                                            <constraint firstAttribute="trailing" secondItem="5XI-1B-OMh" secondAttribute="trailing" id="8gJ-go-uEk"/>
+                                            <constraint firstItem="xr5-zF-ySE" firstAttribute="top" secondItem="qg2-mw-N9a" secondAttribute="top" id="Fh2-Ak-2mi"/>
+                                            <constraint firstAttribute="bottom" secondItem="5XI-1B-OMh" secondAttribute="bottom" id="GFb-r3-lEJ"/>
+                                            <constraint firstAttribute="height" constant="361" id="pue-tE-o0J"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qg2-mw-N9a" secondAttribute="trailing" constant="20" id="JtS-So-aXF"/>
+                                    <constraint firstAttribute="bottom" secondItem="qg2-mw-N9a" secondAttribute="bottom" id="Qry-QR-kIC"/>
+                                    <constraint firstItem="qg2-mw-N9a" firstAttribute="top" secondItem="xmI-0i-iVz" secondAttribute="top" constant="15" id="YXQ-9H-AKs"/>
+                                    <constraint firstItem="qg2-mw-N9a" firstAttribute="leading" secondItem="xmI-0i-iVz" secondAttribute="leading" constant="20" id="uKc-WC-SET"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vFl-mG-vTP">
+                                <rect key="frame" x="0.0" y="432" width="320" height="76"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" red="0.30196079609999998" green="0.35686275360000003" blue="0.4196078479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="qXy-zC-jaX" secondAttribute="bottom" id="3gv-1H-7Qp"/>
+                    <constraint firstItem="qXy-zC-jaX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5w8-5b-xcz"/>
+                    <constraint firstItem="qXy-zC-jaX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="PTH-wn-SRW"/>
+                    <constraint firstAttribute="trailing" secondItem="qXy-zC-jaX" secondAttribute="trailing" id="Q7L-KI-2YM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="blogerView" destination="Vmb-TW-6Rx" id="VSc-eW-Vbb"/>
+                <outlet property="sourceTextView" destination="xr5-zF-ySE" id="5DR-UD-f01"/>
+                <outlet property="sourceView" destination="qg2-mw-N9a" id="Utf-Bc-MHj"/>
+                <outlet property="sourceViewHeightConstraint" destination="pue-tE-o0J" id="ix3-fr-lfz"/>
+                <outlet property="textTextView" destination="vFl-mG-vTP" id="SCI-Kb-ewR"/>
+            </connections>
+            <point key="canvasLocation" x="134.78260869565219" y="177.45535714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="gradient2" width="320" height="68"/>
+    </resources>
+</document>

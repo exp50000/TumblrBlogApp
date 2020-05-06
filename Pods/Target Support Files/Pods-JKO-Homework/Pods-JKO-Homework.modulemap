@@ -1,0 +1,6 @@
+module Pods_JKO_Homework {
+  umbrella header "Pods-JKO-Homework-umbrella.h"
+
+  export *
+  module * { export * }
+}
