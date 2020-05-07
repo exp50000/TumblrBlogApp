@@ -146,15 +146,17 @@ extension MainViewController {
                 return
             }
             
-            self.viewOutlet.tableView.beginUpdates()
-            self.viewOutlet.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-            self.viewOutlet.tableView.endUpdates()
-            
             switch self.viewModel.apiInfoStatus {
             case .success:
                 self.viewOutlet.nameButton.setTitle(self.viewModel.blogerInfo?.name, for: .normal)
-            default: return
+            case .error:
+                return self.viewOutlet.nameButton.setTitle(nil, for: .normal)
+            default: break
             }
+            
+            self.viewOutlet.tableView.beginUpdates()
+            self.viewOutlet.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            self.viewOutlet.tableView.endUpdates()
         }
         
         viewModel.addChangeListener(\.apiPostsStatus) { [weak self] _ in
@@ -162,7 +164,9 @@ extension MainViewController {
                 return
             }
             
-            if case .success = self.viewModel.apiPostsStatus {
+            if [APIStatus.success,
+                APIStatus.empty,
+                APIStatus.error].contains(self.viewModel.apiPostsStatus)  {
                 if self.viewOutlet.isRefreshing {
                     
                     self.viewModel.isRefreshSuccess = true
@@ -182,10 +186,23 @@ extension MainViewController {
             }
             
             switch self.viewModel.apiPostsStatus {
+            case .start:
+                self.viewOutlet.startLoading()
+                
             case .success:
+                self.viewOutlet.finishLoading()
                 self.viewOutlet.tableView.beginUpdates()
                 self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
                 self.viewOutlet.tableView.endUpdates()
+                
+            case .empty:
+                self.viewOutlet.tableView.reloadData()
+                self.viewOutlet.finishLoading()
+                
+            case .error:
+                self.viewOutlet.tableView.reloadData()
+                self.viewOutlet.finishLoadingWithError()
+                
             default: return
             }
         }
@@ -195,14 +212,13 @@ extension MainViewController {
                 return
             }
             
-            self.viewOutlet.finishLoading()
+            self.viewOutlet.finishFetching()
             
             switch self.viewModel.apiMorePostsStatus {
             case .start:
-                self.viewOutlet.startLoading()
+                self.viewOutlet.startFetching()
                 
             case .success:
-                
                 // 目前總數減掉最近新增的筆數的index，才是要插入cell的起點
                 let count = self.viewModel.postCellViewModels.count - self.viewModel.lastRequestPostCount
                 let indexPaths: [IndexPath] = {
@@ -271,6 +287,12 @@ extension MainViewController: UIScrollViewDelegate {
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         if viewOutlet.isRefreshing {
+            switch viewModel.apiPostsStatus {
+            case .success, .empty: viewOutlet.finishLoading()
+            case .error: viewOutlet.finishLoadingWithError()
+            default: break
+            }
+           
             self.viewOutlet.tableView.beginUpdates()
             self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .fade)
             self.viewOutlet.tableView.endUpdates()

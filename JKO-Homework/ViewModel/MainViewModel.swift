@@ -75,8 +75,6 @@ private extension MainViewModel {
     }
     
     func apiGetPosts() {
-//        clearPostData()
-        
         apiPostsStatus = .start
         
         BlogManager.GetPosts(blogID) {  response in
@@ -115,7 +113,10 @@ private extension MainViewModel {
     
     func handleGetInfoReponse(_ response: InfoModel?) {
         guard let response = response else {
-            return apiInfoStatus = .error
+            clearPostData()
+            apiInfoStatus = .error
+            apiPostsStatus = .error
+            return
         }
         
         if let index = InfoManager.blogerInfos.firstIndex(where: { $0.url == response.url }) {
@@ -127,6 +128,9 @@ private extension MainViewModel {
         infoHeaderCellViewModel = InfoHeaderCellViewModel(info: response)
         apiInfoStatus = .success
         
+        clearPostData()
+        apiPostsStatus = .success
+        
         apiGetPosts()
     }
     
@@ -136,11 +140,15 @@ private extension MainViewModel {
             let posts = response.posts,
             let bloger = response.blog
         else {
-            return apiPostsStatus = .error
+            clearPostData()
+            apiPostsStatus = .error
+            return
         }
         
         guard !posts.isEmpty else {
-            return apiPostsStatus = .empty
+            clearPostData()
+            apiPostsStatus = .empty
+            return
         }
         
         postCellViewModels = posts.compactMap({ post -> PostCellViewModel? in
@@ -183,8 +191,6 @@ private extension MainViewModel {
         }
         
         let viewModels = posts.compactMap({ post -> PostCellViewModel? in
-            print("===== time \(post.timestamp ?? 0)")
-            
             switch post.typeEnum {
             case .text:
                 return TextPostCellViewModel(post: post, bloger: bloger)

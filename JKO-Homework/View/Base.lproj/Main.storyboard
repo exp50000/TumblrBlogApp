@@ -75,10 +75,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="gfZ-2k-gbV" customClass="MainViewOutlet" customModule="街口作業" customModuleProvider="target">
                     <connections>
+                        <outlet property="errorView" destination="7CQ-0Q-GTM" id="gRq-1Z-BrB"/>
                         <outlet property="nameButton" destination="5qV-6W-rS5" id="3mT-1a-P2r"/>
                         <outlet property="tableView" destination="fBU-wg-1JO" id="m9M-0L-xkm"/>
                     </connections>
                 </customObject>
+                <view contentMode="scaleToFill" id="7CQ-0Q-GTM">
+                    <rect key="frame" x="0.0" y="0.0" width="389" height="388"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哦！哪裡出錯了，請稍後再試！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7b-Cl-M3J">
+                            <rect key="frame" x="73" y="184" width="243" height="20.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" red="0.4823529412" green="0.57254901960000004" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="M7b-Cl-M3J" firstAttribute="centerX" secondItem="TSp-nd-TCB" secondAttribute="centerX" id="5BZ-XV-glg"/>
+                        <constraint firstItem="M7b-Cl-M3J" firstAttribute="centerY" secondItem="7CQ-0Q-GTM" secondAttribute="centerY" id="A7p-9y-0di"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="TSp-nd-TCB"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
         </scene>
@@ -221,7 +240,6 @@
         <!--Navigation Controller-->
         <scene sceneID="e8p-fN-bi2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pib-kt-yh4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XFf-Ql-cFm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dRo-IC-mIZ">
@@ -233,6 +251,7 @@
                         <segue destination="ead-v3-0i4" kind="relationship" relationship="rootViewController" id="bEe-7i-VJk"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pib-kt-yh4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3202.898550724638" y="138.61607142857142"/>
         </scene>

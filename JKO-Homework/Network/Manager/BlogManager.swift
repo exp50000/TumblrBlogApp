@@ -20,15 +20,13 @@ class BlogManager {
             switch response.result {
             case .success(let data):
                 guard let response = APIResponse<InfoResponse>.decode(from: data) else {
-                    completionHandler(nil)
                     return
                 }
                 
-                completionHandler(response.response?.blog)
+                info = response.response?.blog
                 
             case .failure(let error):
                 print(error, terminator: "\n")
-                completionHandler(nil)
             }
         }
     }
@@ -62,15 +60,13 @@ class BlogManager {
             switch response.result {
             case .success(let data):
                 guard let response = APIResponse<PostResponse>.decode(from: data) else {
-                    completionHandler(nil)
                     return
                 }
                 
-                completionHandler(response.response)
+                result = response.response
                 
             case .failure(let error):
                 print(error, terminator: "\n")
-                completionHandler(nil)
             }
         }
     }
