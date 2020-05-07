@@ -53,9 +53,8 @@ extension MainViewController: UITableViewDataSource {
         if indexPath == IndexPath(row: 0, section: 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: InfoHeaderCell.cellIdentifier, for: indexPath) as! InfoHeaderCell
             
-            if let info = viewModel.infoHeaderCellViewModel {
-                cell.configure(viewModel: info)
-            }
+            let info = viewModel.infoHeaderCellViewModel ?? InfoHeaderCellViewModel()
+            cell.configure(viewModel: info)
             
             return cell
         }
@@ -167,12 +166,13 @@ extension MainViewController {
                 return
             }
             
-            UIView.setAnimationsEnabled(false)
-            self.viewOutlet.tableView.beginUpdates()
-            self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .none)
-            self.viewOutlet.tableView.endUpdates()
-            UIView.setAnimationsEnabled(true)
-            self.viewOutlet.tableView.layoutIfNeeded()
+            switch self.viewModel.apiPostsStatus {
+            case .success:
+                self.viewOutlet.tableView.beginUpdates()
+                self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+                self.viewOutlet.tableView.endUpdates()
+            default: return
+            }
         }
         
         viewModel.addChangeListener(\.apiMorePostsStatus) { [weak self] _ in
@@ -235,7 +235,6 @@ extension MainViewController {
                 }
                 
                 self.viewModel.getInfo()
-                self.viewModel.getPost()
         }
     }
 }

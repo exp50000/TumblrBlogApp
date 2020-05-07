@@ -38,7 +38,6 @@ class MainViewModel: NSObject {
         super.init()
         
         apiGetInfo()
-        apiGetPosts()
     }
 }
 
@@ -75,7 +74,7 @@ private extension MainViewModel {
     }
     
     func apiGetPosts() {
-        clearPostData()
+//        clearPostData()
         
         apiPostsStatus = .start
         
@@ -126,6 +125,8 @@ private extension MainViewModel {
         blogerInfo = response
         infoHeaderCellViewModel = InfoHeaderCellViewModel(info: response)
         apiInfoStatus = .success
+        
+        apiGetPosts()
     }
     
     func handleGetPostsReponse(_ response: PostResponse?) {
