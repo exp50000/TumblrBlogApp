@@ -18,7 +18,6 @@ class MainViewModel: NSObject {
     private(set) var blogerInfo: InfoModel?
     private(set) var infoHeaderCellViewModel: InfoHeaderCellViewModel?
     
-//    private(set) var posts: [PostModel] = []
     private(set) var postCellViewModels: [PostCellViewModel] = []
     
     private(set) var totalPosts: Int = 0
@@ -29,6 +28,8 @@ class MainViewModel: NSObject {
     private(set) var before: Int = Int.max
     
     private var isFetching = false
+    
+    var isRefreshSuccess = false
     
     @objc dynamic var apiInfoStatus: APIStatus = .none
     @objc dynamic var apiPostsStatus: APIStatus = .none

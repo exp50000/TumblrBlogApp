@@ -22,8 +22,6 @@ class MainViewOutlet: NSObject {
     
     private var lastContentOffset: CGPoint = .zero
     
-    var headerHeight: CGFloat?
-    
     private(set) var isRefreshing = false
 }
 
@@ -75,8 +73,7 @@ extension MainViewOutlet {
                 
                 if !scrollView.isDragging &&
                     lastContentOffset.y < -61 &&
-                    scrollView.contentOffset.y > -65 &&
-                    isRefreshing {
+                    scrollView.contentOffset.y > -65 {
                     scrollView.setContentOffset(CGPoint(x: 0, y: -60), animated: false)
                     cell.frame = CGRect(
                         x: 0.0,
@@ -94,7 +91,7 @@ extension MainViewOutlet {
         }
     }
     
-    func stopRefreshing(_ scrollView: UIScrollView) {
+    func stopRefreshing() {
         self.isRefreshing = false
     }
 }
@@ -112,11 +109,6 @@ extension MainViewOutlet {
     func finishLoading() {
         tableView.tableFooterView = nil
     }
-}
-
-extension MainViewOutlet {
-    
-    
 }
 
 private extension MainViewOutlet {

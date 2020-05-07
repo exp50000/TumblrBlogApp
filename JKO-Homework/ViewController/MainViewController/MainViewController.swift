@@ -162,8 +162,23 @@ extension MainViewController {
                 return
             }
             
-            if self.viewOutlet.isRefreshing {
-                return
+            if case .success = self.viewModel.apiPostsStatus {
+                if self.viewOutlet.isRefreshing {
+                    
+                    self.viewModel.isRefreshSuccess = true
+                    let scrollView = self.viewOutlet.tableView as UIScrollView
+                    if scrollView.isDragging ||
+                        scrollView.isDecelerating {
+                        return
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        scrollView.setContentOffset(.zero, animated: true)
+                    }
+                    
+                    self.viewModel.isRefreshSuccess = false
+                    return
+                }
             }
             
             switch self.viewModel.apiPostsStatus {
@@ -247,19 +262,20 @@ extension MainViewController: UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-        if viewOutlet.isRefreshing {
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                
-                UIView.performWithoutAnimation {
-                    self.viewOutlet.tableView.beginUpdates()
-                    self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .none)
-                    self.viewOutlet.tableView.endUpdates()
-                    
-                    self.viewOutlet.tableView.layoutIfNeeded()
-                }
-                self.viewOutlet.stopRefreshing(scrollView)
+        if viewOutlet.isRefreshing && viewModel.isRefreshSuccess {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                scrollView.setContentOffset(.zero, animated: true)
             }
+        }
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        if viewOutlet.isRefreshing {
+            self.viewOutlet.tableView.beginUpdates()
+            self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .fade)
+            self.viewOutlet.tableView.endUpdates()
+            
+            self.viewOutlet.stopRefreshing()
         }
     }
 }
