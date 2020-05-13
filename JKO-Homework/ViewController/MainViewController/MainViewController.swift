@@ -130,6 +130,8 @@ private extension MainViewController {
             return QuotePostCell.cellIdentifier
         case is LinkPostCellViewModel:
             return LinkPostCell.cellIdentifier
+        case is VideoPostCellViewModel:
+            return VideoPostCell.cellIdentifier
         case is ChatPostCellViewModel:
             return ChatPostCell.cellIdentifier
         default:

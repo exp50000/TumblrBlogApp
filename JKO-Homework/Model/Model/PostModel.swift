@@ -110,6 +110,10 @@ class PostModel: ModelBase {
     
     /// Array of objects with the following properties:
     var dialogue: [DialogueModel]?
+    
+    
+    // MARK: - Video Post
+    var player: [PlayerModel]?
 }
 
 extension PostModel {

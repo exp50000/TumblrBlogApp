@@ -44,6 +44,6 @@ private extension TextPostCellViewModel {
         
         height += body.height(with: width - 35)
         
-        cellHeight = height > 400 ? 400 : height
+        cellHeight = height
     }
 }

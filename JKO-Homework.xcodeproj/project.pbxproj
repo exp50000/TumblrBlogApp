@@ -70,6 +70,10 @@
 		7909771A2462C65E009F36CB /* SwitchBlogerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790977192462C65E009F36CB /* SwitchBlogerViewController.swift */; };
 		7909771C2462C69A009F36CB /* SwitchBlogerViewOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909771B2462C69A009F36CB /* SwitchBlogerViewOutlet.swift */; };
 		7909771E2462CA1D009F36CB /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7909771D2462CA1D009F36CB /* Singleton.swift */; };
+		793C53E324645B6F00172D2C /* VideoPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C53E124645B6E00172D2C /* VideoPostCell.swift */; };
+		793C53E424645B6F00172D2C /* VideoPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 793C53E224645B6E00172D2C /* VideoPostCell.xib */; };
+		793C53E62464870E00172D2C /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C53E52464870E00172D2C /* PlayerModel.swift */; };
+		793C53E8246487A800172D2C /* VideoPostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793C53E7246487A800172D2C /* VideoPostCellViewModel.swift */; };
 		793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFBE245A831E00F13D09 /* AppDelegate.swift */; };
 		793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC0245A831F00F13D09 /* SceneDelegate.swift */; };
 		793CDFC3245A831F00F13D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CDFC2245A831F00F13D09 /* MainViewController.swift */; };
@@ -161,6 +165,10 @@
 		790977192462C65E009F36CB /* SwitchBlogerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchBlogerViewController.swift; sourceTree = "<group>"; };
 		7909771B2462C69A009F36CB /* SwitchBlogerViewOutlet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchBlogerViewOutlet.swift; sourceTree = "<group>"; };
 		7909771D2462CA1D009F36CB /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		793C53E124645B6E00172D2C /* VideoPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostCell.swift; sourceTree = "<group>"; };
+		793C53E224645B6E00172D2C /* VideoPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPostCell.xib; sourceTree = "<group>"; };
+		793C53E52464870E00172D2C /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		793C53E7246487A800172D2C /* VideoPostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostCellViewModel.swift; sourceTree = "<group>"; };
 		793CDFBB245A831E00F13D09 /* 街口作業.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "街口作業.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		793CDFBE245A831E00F13D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		793CDFC0245A831F00F13D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +230,7 @@
 				790976B624607BD0009F36CB /* QuotePostCell */,
 				790976BF2461054B009F36CB /* LinkPostCell */,
 				790976C824611E0D009F36CB /* ChatPostCell */,
+				793C53E024645B1E00172D2C /* VideoPostCell */,
 				7909767D245F2DB8009F36CB /* InfoHeaderCell */,
 			);
 			path = Cell;
@@ -426,6 +435,16 @@
 			path = SwitchBlogerViewController;
 			sourceTree = "<group>";
 		};
+		793C53E024645B1E00172D2C /* VideoPostCell */ = {
+			isa = PBXGroup;
+			children = (
+				793C53E124645B6E00172D2C /* VideoPostCell.swift */,
+				793C53E224645B6E00172D2C /* VideoPostCell.xib */,
+				793C53E7246487A800172D2C /* VideoPostCellViewModel.swift */,
+			);
+			path = VideoPostCell;
+			sourceTree = "<group>";
+		};
 		793CDFB2245A831E00F13D09 = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +611,7 @@
 				7909769A246004F1009F36CB /* PhotoModel.swift */,
 				7909769E246017DF009F36CB /* PhotoSizeModel.swift */,
 				790976C624611B8A009F36CB /* DialogueModel.swift */,
+				793C53E52464870E00172D2C /* PlayerModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -686,6 +706,7 @@
 				793CDFEA245C3B9100F13D09 /* InfoHeaderCell.xib in Resources */,
 				790976FF2461CC28009F36CB /* QuotePostDetailCell.xib in Resources */,
 				790976E824616CB0009F36CB /* TextPostDetailCell.xib in Resources */,
+				793C53E424645B6F00172D2C /* VideoPostCell.xib in Resources */,
 				79097686245F432F009F36CB /* TextPostCell.xib in Resources */,
 				790976BA24607BF9009F36CB /* QuotePostCell.xib in Resources */,
 				790977062461D8CB009F36CB /* LinkPostDetailCell.xib in Resources */,
@@ -755,6 +776,7 @@
 				790976DC24615AED009F36CB /* DetailViewController.swift in Sources */,
 				790976B424603B9A009F36CB /* SwiftyGifManager.swift in Sources */,
 				790976F72461B33D009F36CB /* PhotoPostDetailCell.swift in Sources */,
+				793C53E324645B6F00172D2C /* VideoPostCell.swift in Sources */,
 				790976F324617DD7009F36CB /* UIViewController+Extension.swift in Sources */,
 				79097697245FC989009F36CB /* UIColor+Extension.swift in Sources */,
 				790976B924607BF9009F36CB /* QuotePostCell.swift in Sources */,
@@ -775,6 +797,7 @@
 				790976E024616322009F36CB /* DetailViewModel.swift in Sources */,
 				793CE008245EA0B100F13D09 /* NSObject+Extension.swift in Sources */,
 				790976A624601D31009F36CB /* PhotoPostCellViewModel.swift in Sources */,
+				793C53E8246487A800172D2C /* VideoPostCellViewModel.swift in Sources */,
 				793CDFBF245A831E00F13D09 /* AppDelegate.swift in Sources */,
 				790976EB246170BC009F36CB /* ShortUrlView.swift in Sources */,
 				793CDFC1245A831F00F13D09 /* SceneDelegate.swift in Sources */,
@@ -790,6 +813,7 @@
 				790977132461FD46009F36CB /* PostCellConfigurable.swift in Sources */,
 				793CDFF2245DFBFA00F13D09 /* APIRouterHelper.swift in Sources */,
 				7909768F245F56E8009F36CB /* PostResponse.swift in Sources */,
+				793C53E62464870E00172D2C /* PlayerModel.swift in Sources */,
 				790977152461FF9D009F36CB /* UITableViewCell+Extension.swift in Sources */,
 				793CDFF8245E050500F13D09 /* InfoModel.swift in Sources */,
 				793CDFEE245DCA2500F13D09 /* BaseConfig.swift in Sources */,

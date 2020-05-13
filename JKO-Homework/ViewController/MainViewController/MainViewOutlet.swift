@@ -36,6 +36,7 @@ extension MainViewOutlet {
         tableView.register(UINib(nibName: "PhotoPostCell", bundle: nil), forCellReuseIdentifier: PhotoPostCell.cellIdentifier)
         tableView.register(UINib(nibName: "QuotePostCell", bundle: nil), forCellReuseIdentifier: QuotePostCell.cellIdentifier)
         tableView.register(UINib(nibName: "LinkPostCell", bundle: nil), forCellReuseIdentifier: LinkPostCell.cellIdentifier)
+        tableView.register(UINib(nibName: "VideoPostCell", bundle: nil), forCellReuseIdentifier: VideoPostCell.cellIdentifier)
         tableView.register(UINib(nibName: "ChatPostCell", bundle: nil), forCellReuseIdentifier: ChatPostCell.cellIdentifier)
     }
 }
