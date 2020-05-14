@@ -44,6 +44,7 @@ class VideoPostCellViewModel: PostCellViewModel {
         }
         
         
+        
         calculateCellHeight(with: UIScreen.main.bounds.width)
     }
 }

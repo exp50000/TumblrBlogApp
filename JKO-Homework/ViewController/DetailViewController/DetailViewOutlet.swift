@@ -28,5 +28,6 @@ extension DetailViewOutlet {
         tableView.register(UINib(nibName: "QuotePostDetailCell", bundle: nil), forCellReuseIdentifier: QuotePostDetailCell.cellIdentifier)
         tableView.register(UINib(nibName: "LinkPostDetailCell", bundle: nil), forCellReuseIdentifier: LinkPostDetailCell.cellIdentifier)
         tableView.register(UINib(nibName: "ChatPostDetailCell", bundle: nil), forCellReuseIdentifier: ChatPostDetailCell.cellIdentifier)
+        tableView.register(UINib(nibName: "VideoPostDetailCell", bundle: nil), forCellReuseIdentifier: VideoPostDetailCell.cellIdentifier)
     }
 }

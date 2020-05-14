@@ -77,7 +77,7 @@ private extension MainViewModel {
     func apiGetPosts() {
         apiPostsStatus = .start
         
-        BlogManager.GetPosts(blogID, type: .video) {  response in
+        BlogManager.GetPosts(blogID) {  response in
             DispatchQueue.main.async {
                 self.handleGetPostsReponse(response)
             }
@@ -93,7 +93,7 @@ private extension MainViewModel {
         
         isFetching = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            BlogManager.GetPosts(self.blogID, type: .video, before: time) {  response in
+            BlogManager.GetPosts(self.blogID, before: time) {  response in
                 DispatchQueue.main.async {
                     self.handleGetMorePostsReponse(response)
                 }

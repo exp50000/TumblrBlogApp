@@ -99,6 +99,9 @@
 		793CE006245E9CC800F13D09 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CE005245E9CC800F13D09 /* Enums.swift */; };
 		793CE008245EA0B100F13D09 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CE007245EA0B000F13D09 /* NSObject+Extension.swift */; };
 		793CE00A245EB98800F13D09 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CE009245EB98800F13D09 /* String+Extension.swift */; };
+		79C208AD246C7E6800FB9E06 /* VideoPostDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C208AB246C7E6700FB9E06 /* VideoPostDetailCell.swift */; };
+		79C208AE246C7E6800FB9E06 /* VideoPostDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C208AC246C7E6700FB9E06 /* VideoPostDetailCell.xib */; };
+		79C208B0246C7E8800FB9E06 /* VideoPostDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C208AF246C7E8800FB9E06 /* VideoPostDetailCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,6 +199,9 @@
 		793CE005245E9CC800F13D09 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		793CE007245EA0B000F13D09 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		793CE009245EB98800F13D09 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		79C208AB246C7E6700FB9E06 /* VideoPostDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostDetailCell.swift; sourceTree = "<group>"; };
+		79C208AC246C7E6700FB9E06 /* VideoPostDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPostDetailCell.xib; sourceTree = "<group>"; };
+		79C208AF246C7E8800FB9E06 /* VideoPostDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostDetailCellViewModel.swift; sourceTree = "<group>"; };
 		7FF6ED82606D0EC73041BCBA /* Pods-JKO-Homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKO-Homework.release.xcconfig"; path = "Target Support Files/Pods-JKO-Homework/Pods-JKO-Homework.release.xcconfig"; sourceTree = "<group>"; };
 		DF4B8C0FDAFF0CEB728D758C /* Pods-JKO-Homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKO-Homework.debug.xcconfig"; path = "Target Support Files/Pods-JKO-Homework/Pods-JKO-Homework.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -362,6 +368,7 @@
 				790976FB2461CBA4009F36CB /* QuotePostDetailCell */,
 				790977022461D88F009F36CB /* LinkPostDetailCell */,
 				790977092461E4C8009F36CB /* ChatPostDetailCell */,
+				79C208AA246C76EC00FB9E06 /* VideoPostDetailCell */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -625,6 +632,16 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		79C208AA246C76EC00FB9E06 /* VideoPostDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				79C208AB246C7E6700FB9E06 /* VideoPostDetailCell.swift */,
+				79C208AC246C7E6700FB9E06 /* VideoPostDetailCell.xib */,
+				79C208AF246C7E8800FB9E06 /* VideoPostDetailCellViewModel.swift */,
+			);
+			path = VideoPostDetailCell;
+			sourceTree = "<group>";
+		};
 		94C012F7D4E911DDA3A7B780 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,6 +723,7 @@
 				793CDFEA245C3B9100F13D09 /* InfoHeaderCell.xib in Resources */,
 				790976FF2461CC28009F36CB /* QuotePostDetailCell.xib in Resources */,
 				790976E824616CB0009F36CB /* TextPostDetailCell.xib in Resources */,
+				79C208AE246C7E6800FB9E06 /* VideoPostDetailCell.xib in Resources */,
 				793C53E424645B6F00172D2C /* VideoPostCell.xib in Resources */,
 				79097686245F432F009F36CB /* TextPostCell.xib in Resources */,
 				790976BA24607BF9009F36CB /* QuotePostCell.xib in Resources */,
@@ -790,6 +808,7 @@
 				79097691245FB4C9009F36CB /* PostCellViewModel.swift in Sources */,
 				790976FA2461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift in Sources */,
 				7909767B245ED502009F36CB /* InfoHeaderCellViewModel.swift in Sources */,
+				79C208AD246C7E6800FB9E06 /* VideoPostDetailCell.swift in Sources */,
 				7909771E2462CA1D009F36CB /* Singleton.swift in Sources */,
 				7909771A2462C65E009F36CB /* SwitchBlogerViewController.swift in Sources */,
 				790977012461CE00009F36CB /* QuotePostDetailCellViewModel.swift in Sources */,
@@ -817,6 +836,7 @@
 				790977152461FF9D009F36CB /* UITableViewCell+Extension.swift in Sources */,
 				793CDFF8245E050500F13D09 /* InfoModel.swift in Sources */,
 				793CDFEE245DCA2500F13D09 /* BaseConfig.swift in Sources */,
+				79C208B0246C7E8800FB9E06 /* VideoPostDetailCellViewModel.swift in Sources */,
 				793CE006245E9CC800F13D09 /* Enums.swift in Sources */,
 				793CDFDF245ABFAF00F13D09 /* MainViewOutlet.swift in Sources */,
 			);

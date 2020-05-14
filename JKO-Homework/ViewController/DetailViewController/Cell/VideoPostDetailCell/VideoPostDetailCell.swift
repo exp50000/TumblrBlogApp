@@ -1,15 +1,15 @@
 //
-//  VideoPostCell.swift
+//  VideoPostDetailCell.swift
 //  JKO-Homework
 //
-//  Created by Ric. on 2020/5/7.
+//  Created by Ric. on 2020/5/14.
 //  Copyright © 2020 Ric. All rights reserved.
 //
 
 import UIKit
 import WebKit
 
-class VideoPostCell: UITableViewCell {
+class VideoPostDetailCell: UITableViewCell {
 
     @IBOutlet weak var blogerView: BlogerView!
     
@@ -17,11 +17,16 @@ class VideoPostCell: UITableViewCell {
     
     @IBOutlet weak var captionTextView: UITextView!
     
-    @IBOutlet weak var watchFullVideoLabel: UILabel!
+    @IBOutlet weak var webViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var shortUrlView: ShortUrlView!
     
     var webView: WKWebView!
     
-    var viewModel: VideoPostCellViewModel?
+    var needReload: (() -> Void)?
+    
+    var viewModel: VideoPostDetailCellViewModel?
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,12 +39,13 @@ class VideoPostCell: UITableViewCell {
         
         webView.frame = CGRect(origin: CGPoint(x: -3, y: -5), size: webContainerView.bounds.size)
     }
+    
 }
 
-extension VideoPostCell: PostCellConfigurable {
+extension VideoPostDetailCell: PostDetailCellConfigurable {
     
-    func configure(viewModel: PostCellViewModel) {
-        guard let viewModel = viewModel as? VideoPostCellViewModel else {
+    func configure(viewModel: PostDetailCellViewModel) {
+        guard let viewModel = viewModel as? VideoPostDetailCellViewModel else {
             return
         }
         
@@ -48,8 +54,12 @@ extension VideoPostCell: PostCellConfigurable {
         blogerView.setupView(name: viewModel.name, avatar: viewModel.avatar)
         
         captionTextView.attributedText = viewModel.caption
+        captionTextView.isHidden = viewModel.caption.string.isEmpty
+        
         let html = viewModel.video
         webView.loadHTMLString(html, baseURL: nil)
+        
+        shortUrlView.setupView(url: viewModel.shortUrl, date: viewModel.postDate)
     }
     
     func setupWKWebView() {
@@ -62,13 +72,12 @@ extension VideoPostCell: PostCellConfigurable {
         webView.scrollView.delegate = self
         webView.scrollView.isScrollEnabled = false
         webContainerView.addSubview(webView)
-        webContainerView.sendSubviewToBack(webView)
         
         webView.frame = CGRect(origin: CGPoint(x: -3, y: -5), size: webContainerView.bounds.size)
     }
 }
 
-extension VideoPostCell: UIScrollViewDelegate {
+extension VideoPostDetailCell: UIScrollViewDelegate {
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return nil
@@ -79,14 +88,28 @@ extension VideoPostCell: UIScrollViewDelegate {
     }
 }
 
-extension VideoPostCell: WKNavigationDelegate {
+extension VideoPostDetailCell: WKNavigationDelegate {
     
     func webView(_: WKWebView, didStartProvisionalNavigation _: WKNavigation!) {
         
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        
+        webView.evaluateJavaScript("document.readyState") { complete, error in
+            if complete != nil {
+                webView.evaluateJavaScript("document.body.offsetHeight") { height, error in
+                    let videoHeight = (height as? CGFloat) ?? 0
+                    let videoWidth = CGFloat(self.viewModel?.videoWidth ?? 0)
+                    let ratio = videoHeight > 0 ? videoWidth / videoHeight : 0
+                    
+                    let height = UIScreen.main.bounds.width / ratio
+                    webView.frame.size.height = height
+                    self.webViewHeight.constant = height
+                    
+                    self.needReload?()
+                }
+            }
+        }
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -98,7 +121,7 @@ extension VideoPostCell: WKNavigationDelegate {
     }
 }
 
-extension VideoPostCell: WKScriptMessageHandler {
+extension VideoPostDetailCell: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
     }
