@@ -32,6 +32,7 @@ extension InfoHeaderCell {
         
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
+        
         avatarImageView.sd_setImage(with: URL(string: viewModel.avatar))
         
         infoViewHeightConstraint.constant = viewModel.cellHeight

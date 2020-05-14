@@ -18,7 +18,6 @@ class MainViewModel: NSObject {
     private(set) var blogerInfo: InfoModel?
     private(set) var infoHeaderCellViewModel: InfoHeaderCellViewModel?
     
-//    private(set) var posts: [PostModel] = []
     private(set) var postCellViewModels: [PostCellViewModel] = []
     
     private(set) var totalPosts: Int = 0
@@ -30,6 +29,8 @@ class MainViewModel: NSObject {
     
     private var isFetching = false
     
+    var isRefreshSuccess = false
+    
     @objc dynamic var apiInfoStatus: APIStatus = .none
     @objc dynamic var apiPostsStatus: APIStatus = .none
     @objc dynamic var apiMorePostsStatus: APIStatus = .none
@@ -38,7 +39,6 @@ class MainViewModel: NSObject {
         super.init()
         
         apiGetInfo()
-        apiGetPosts()
     }
 }
 
@@ -75,8 +75,6 @@ private extension MainViewModel {
     }
     
     func apiGetPosts() {
-        clearPostData()
-        
         apiPostsStatus = .start
         
         BlogManager.GetPosts(blogID) {  response in
@@ -115,7 +113,10 @@ private extension MainViewModel {
     
     func handleGetInfoReponse(_ response: InfoModel?) {
         guard let response = response else {
-            return apiInfoStatus = .error
+            clearPostData()
+            apiInfoStatus = .error
+            apiPostsStatus = .error
+            return
         }
         
         if let index = InfoManager.blogerInfos.firstIndex(where: { $0.url == response.url }) {
@@ -126,6 +127,11 @@ private extension MainViewModel {
         blogerInfo = response
         infoHeaderCellViewModel = InfoHeaderCellViewModel(info: response)
         apiInfoStatus = .success
+        
+        clearPostData()
+        apiPostsStatus = .success
+        
+        apiGetPosts()
     }
     
     func handleGetPostsReponse(_ response: PostResponse?) {
@@ -134,11 +140,15 @@ private extension MainViewModel {
             let posts = response.posts,
             let bloger = response.blog
         else {
-            return apiPostsStatus = .error
+            clearPostData()
+            apiPostsStatus = .error
+            return
         }
         
         guard !posts.isEmpty else {
-            return apiPostsStatus = .empty
+            clearPostData()
+            apiPostsStatus = .empty
+            return
         }
         
         postCellViewModels = posts.compactMap({ post -> PostCellViewModel? in
@@ -153,8 +163,12 @@ private extension MainViewModel {
                 return LinkPostCellViewModel(post: post, bloger: bloger)
             case .chat:
                 return ChatPostCellViewModel(post: post, bloger: bloger)
+            case .video:
+                return VideoPostCellViewModel(post: post, bloger: bloger)
+            case .answer:
+                return AnswerPostCellViewModel(post: post, bloger: bloger)
             default:
-                return nil
+                return TextPostCellViewModel(post: post, bloger: bloger)
             }
         })
         
@@ -173,16 +187,18 @@ private extension MainViewModel {
             let posts = response.posts,
             let bloger = response.blog
         else {
-            return apiMorePostsStatus = .error
+            isFetching = false
+            apiMorePostsStatus = .error
+            return
         }
         
         guard !posts.isEmpty else {
-            return apiMorePostsStatus = .empty
+            isFetching = false
+            apiMorePostsStatus = .empty
+            return
         }
         
         let viewModels = posts.compactMap({ post -> PostCellViewModel? in
-            print("===== time \(post.timestamp ?? 0)")
-            
             switch post.typeEnum {
             case .text:
                 return TextPostCellViewModel(post: post, bloger: bloger)
@@ -194,6 +210,10 @@ private extension MainViewModel {
                 return LinkPostCellViewModel(post: post, bloger: bloger)
             case .chat:
                 return ChatPostCellViewModel(post: post, bloger: bloger)
+            case .video:
+                return VideoPostCellViewModel(post: post, bloger: bloger)
+            case .answer:
+                return AnswerPostCellViewModel(post: post, bloger: bloger)
             default:
                 return TextPostCellViewModel(post: post, bloger: bloger)
             }

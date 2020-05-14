@@ -25,6 +25,8 @@ enum PostType: String {
     case quote = "quote"
     case link =  "link"
     case chat =  "chat"
+    case video = "video"
+    case answer = "answer"
 }
 
 enum ImageType {

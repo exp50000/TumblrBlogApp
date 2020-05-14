@@ -20,9 +20,9 @@ class MainViewOutlet: NSObject {
     
     @IBOutlet weak var nameButton: UIButton!
     
-    private var lastContentOffset: CGPoint = .zero
+    @IBOutlet weak var errorView: UIView!
     
-    var headerHeight: CGFloat?
+    private var lastContentOffset: CGPoint = .zero
     
     private(set) var isRefreshing = false
 }
@@ -37,6 +37,8 @@ extension MainViewOutlet {
         tableView.register(UINib(nibName: "QuotePostCell", bundle: nil), forCellReuseIdentifier: QuotePostCell.cellIdentifier)
         tableView.register(UINib(nibName: "LinkPostCell", bundle: nil), forCellReuseIdentifier: LinkPostCell.cellIdentifier)
         tableView.register(UINib(nibName: "ChatPostCell", bundle: nil), forCellReuseIdentifier: ChatPostCell.cellIdentifier)
+        tableView.register(UINib(nibName: "VideoPostCell", bundle: nil), forCellReuseIdentifier: VideoPostCell.cellIdentifier)
+        tableView.register(UINib(nibName: "AnswerPostCell", bundle: nil), forCellReuseIdentifier: AnswerPostCell.cellIdentifier)
     }
 }
 
@@ -75,8 +77,7 @@ extension MainViewOutlet {
                 
                 if !scrollView.isDragging &&
                     lastContentOffset.y < -61 &&
-                    scrollView.contentOffset.y > -65 &&
-                    isRefreshing {
+                    scrollView.contentOffset.y > -65 {
                     scrollView.setContentOffset(CGPoint(x: 0, y: -60), animated: false)
                     cell.frame = CGRect(
                         x: 0.0,
@@ -94,14 +95,14 @@ extension MainViewOutlet {
         }
     }
     
-    func stopRefreshing(_ scrollView: UIScrollView) {
+    func stopRefreshing() {
         self.isRefreshing = false
     }
 }
 
 extension MainViewOutlet {
     
-    func startLoading() {
+    func startFetching() {
         tableView.tableFooterView = {
             let result = UIActivityIndicatorView(style: .gray)
             result.startAnimating()
@@ -109,14 +110,28 @@ extension MainViewOutlet {
         }()
     }
     
-    func finishLoading() {
+    func finishFetching() {
         tableView.tableFooterView = nil
     }
 }
 
 extension MainViewOutlet {
     
+    func startLoading() {
+        tableView.backgroundView = {
+            let result = UIActivityIndicatorView(style: .gray)
+            result.startAnimating()
+            return result
+        }()
+    }
     
+    func finishLoading() {
+        tableView.backgroundView = nil
+    }
+    
+    func finishLoadingWithError() {
+        tableView.backgroundView = errorView
+    }
 }
 
 private extension MainViewOutlet {

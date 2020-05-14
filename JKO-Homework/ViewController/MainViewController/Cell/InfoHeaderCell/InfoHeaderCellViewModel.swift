@@ -16,6 +16,10 @@ class InfoHeaderCellViewModel {
     
     var cellHeight: CGFloat = 120
     
+    init() {
+        
+    }
+    
     init(info: InfoModel, cellWidth: CGFloat? = UIScreen.main.bounds.width) {
         title = info.title ?? ""
         description = info.description?.htmlToString ?? ""

@@ -37,6 +37,15 @@ extension DetailViewController: UITableViewDataSource {
             cell.configure(viewModel: cellViewModel)
         }
         
+        if let cell = cell as? VideoPostDetailCell {
+            cell.needReload = {
+                UIView.performWithoutAnimation {
+                    self.viewOutlet.tableView.beginUpdates()
+                    self.viewOutlet.tableView.endUpdates()
+                }
+            }
+        }
+        
         return cell
     }
 }
@@ -55,6 +64,10 @@ private extension DetailViewController {
             return LinkPostDetailCell.cellIdentifier
         case is ChatPostDetailCellViewModel:
             return ChatPostDetailCell.cellIdentifier
+        case is VideoPostDetailCellViewModel:
+            return VideoPostDetailCell.cellIdentifier
+        case is AnswerPostDetailCellViewModel:
+            return AnswerPostDetailCell.cellIdentifier
         default:
             fatalError("Unexpected view model type: \(viewModel)")
         }

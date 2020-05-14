@@ -53,9 +53,8 @@ extension MainViewController: UITableViewDataSource {
         if indexPath == IndexPath(row: 0, section: 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: InfoHeaderCell.cellIdentifier, for: indexPath) as! InfoHeaderCell
             
-            if let info = viewModel.infoHeaderCellViewModel {
-                cell.configure(viewModel: info)
-            }
+            let info = viewModel.infoHeaderCellViewModel ?? InfoHeaderCellViewModel()
+            cell.configure(viewModel: info)
             
             return cell
         }
@@ -131,8 +130,12 @@ private extension MainViewController {
             return QuotePostCell.cellIdentifier
         case is LinkPostCellViewModel:
             return LinkPostCell.cellIdentifier
+        case is VideoPostCellViewModel:
+            return VideoPostCell.cellIdentifier
         case is ChatPostCellViewModel:
             return ChatPostCell.cellIdentifier
+        case is AnswerPostCellViewModel:
+            return AnswerPostCell.cellIdentifier
         default:
             fatalError("Unexpected view model type: \(viewModel)")
         }
@@ -147,15 +150,17 @@ extension MainViewController {
                 return
             }
             
-            self.viewOutlet.tableView.beginUpdates()
-            self.viewOutlet.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-            self.viewOutlet.tableView.endUpdates()
-            
             switch self.viewModel.apiInfoStatus {
             case .success:
                 self.viewOutlet.nameButton.setTitle(self.viewModel.blogerInfo?.name, for: .normal)
-            default: return
+            case .error:
+                return self.viewOutlet.nameButton.setTitle(nil, for: .normal)
+            default: break
             }
+            
+            self.viewOutlet.tableView.beginUpdates()
+            self.viewOutlet.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            self.viewOutlet.tableView.endUpdates()
         }
         
         viewModel.addChangeListener(\.apiPostsStatus) { [weak self] _ in
@@ -163,16 +168,47 @@ extension MainViewController {
                 return
             }
             
-            if self.viewOutlet.isRefreshing {
-                return
+            if [APIStatus.success,
+                APIStatus.empty,
+                APIStatus.error].contains(self.viewModel.apiPostsStatus)  {
+                if self.viewOutlet.isRefreshing {
+                    
+                    self.viewModel.isRefreshSuccess = true
+                    let scrollView = self.viewOutlet.tableView as UIScrollView
+                    if scrollView.isDragging ||
+                        scrollView.isDecelerating {
+                        return
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        scrollView.setContentOffset(.zero, animated: true)
+                    }
+                    
+                    self.viewModel.isRefreshSuccess = false
+                    return
+                }
             }
             
-            UIView.setAnimationsEnabled(false)
-            self.viewOutlet.tableView.beginUpdates()
-            self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .none)
-            self.viewOutlet.tableView.endUpdates()
-            UIView.setAnimationsEnabled(true)
-            self.viewOutlet.tableView.layoutIfNeeded()
+            switch self.viewModel.apiPostsStatus {
+            case .start:
+                self.viewOutlet.startLoading()
+                
+            case .success:
+                self.viewOutlet.finishLoading()
+                self.viewOutlet.tableView.beginUpdates()
+                self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+                self.viewOutlet.tableView.endUpdates()
+                
+            case .empty:
+                self.viewOutlet.tableView.reloadData()
+                self.viewOutlet.finishLoading()
+                
+            case .error:
+                self.viewOutlet.tableView.reloadData()
+                self.viewOutlet.finishLoadingWithError()
+                
+            default: return
+            }
         }
         
         viewModel.addChangeListener(\.apiMorePostsStatus) { [weak self] _ in
@@ -180,14 +216,13 @@ extension MainViewController {
                 return
             }
             
-            self.viewOutlet.finishLoading()
+            self.viewOutlet.finishFetching()
             
             switch self.viewModel.apiMorePostsStatus {
             case .start:
-                self.viewOutlet.startLoading()
+                self.viewOutlet.startFetching()
                 
             case .success:
-                
                 // 目前總數減掉最近新增的筆數的index，才是要插入cell的起點
                 let count = self.viewModel.postCellViewModels.count - self.viewModel.lastRequestPostCount
                 let indexPaths: [IndexPath] = {
@@ -235,7 +270,6 @@ extension MainViewController {
                 }
                 
                 self.viewModel.getInfo()
-                self.viewModel.getPost()
         }
     }
 }
@@ -248,19 +282,26 @@ extension MainViewController: UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-        if viewOutlet.isRefreshing {
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                
-                UIView.performWithoutAnimation {
-                    self.viewOutlet.tableView.beginUpdates()
-                    self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .none)
-                    self.viewOutlet.tableView.endUpdates()
-                    
-                    self.viewOutlet.tableView.layoutIfNeeded()
-                }
-                self.viewOutlet.stopRefreshing(scrollView)
+        if viewOutlet.isRefreshing && viewModel.isRefreshSuccess {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                scrollView.setContentOffset(.zero, animated: true)
             }
+        }
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        if viewOutlet.isRefreshing {
+            switch viewModel.apiPostsStatus {
+            case .success, .empty: viewOutlet.finishLoading()
+            case .error: viewOutlet.finishLoadingWithError()
+            default: break
+            }
+           
+            self.viewOutlet.tableView.beginUpdates()
+            self.viewOutlet.tableView.reloadSections(IndexSet(integer: 1), with: .fade)
+            self.viewOutlet.tableView.endUpdates()
+            
+            self.viewOutlet.stopRefreshing()
         }
     }
 }
