@@ -66,6 +66,8 @@ private extension DetailViewController {
             return ChatPostDetailCell.cellIdentifier
         case is VideoPostDetailCellViewModel:
             return VideoPostDetailCell.cellIdentifier
+        case is AnswerPostDetailCellViewModel:
+            return AnswerPostDetailCell.cellIdentifier
         default:
             fatalError("Unexpected view model type: \(viewModel)")
         }

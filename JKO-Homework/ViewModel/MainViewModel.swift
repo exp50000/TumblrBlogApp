@@ -77,7 +77,7 @@ private extension MainViewModel {
     func apiGetPosts() {
         apiPostsStatus = .start
         
-        BlogManager.GetPosts(blogID, type: .answer) {  response in
+        BlogManager.GetPosts(blogID) {  response in
             DispatchQueue.main.async {
                 self.handleGetPostsReponse(response)
             }
@@ -168,7 +168,7 @@ private extension MainViewModel {
             case .answer:
                 return AnswerPostCellViewModel(post: post, bloger: bloger)
             default:
-                return nil
+                return TextPostCellViewModel(post: post, bloger: bloger)
             }
         })
         
@@ -187,11 +187,15 @@ private extension MainViewModel {
             let posts = response.posts,
             let bloger = response.blog
         else {
-            return apiMorePostsStatus = .error
+            isFetching = false
+            apiMorePostsStatus = .error
+            return
         }
         
         guard !posts.isEmpty else {
-            return apiMorePostsStatus = .empty
+            isFetching = false
+            apiMorePostsStatus = .empty
+            return
         }
         
         let viewModels = posts.compactMap({ post -> PostCellViewModel? in

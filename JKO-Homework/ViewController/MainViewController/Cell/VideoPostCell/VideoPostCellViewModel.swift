@@ -39,8 +39,6 @@ class VideoPostCellViewModel: PostCellViewModel {
             html.replaceSubrange(start..<end, with: "<video autoplay loop playsinline")
             html = html.replacingOccurrences(of: "</object>", with: "</video>")
             video = html
-            
-            print("\(html)")
         }
         
         

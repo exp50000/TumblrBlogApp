@@ -128,7 +128,7 @@ class PostModel: ModelBase {
     var question: String?
     
     /// The answer given
-    var anwser: String?
+    var answer: String?
 }
 
 extension PostModel {

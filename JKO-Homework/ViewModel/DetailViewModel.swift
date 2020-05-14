@@ -72,6 +72,8 @@ extension DetailViewModel {
                 return ChatPostDetailCellViewModel(post: post, bloger: bloger)
             case .video:
                 return VideoPostDetailCellViewModel(post: post, bloger: bloger)
+            case .answer:
+                return AnswerPostDetailCellViewModel(post: post, bloger: bloger)
             default:
                 return nil
             }
