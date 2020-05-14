@@ -77,7 +77,7 @@ private extension MainViewModel {
     func apiGetPosts() {
         apiPostsStatus = .start
         
-        BlogManager.GetPosts(blogID) {  response in
+        BlogManager.GetPosts(blogID, type: .answer) {  response in
             DispatchQueue.main.async {
                 self.handleGetPostsReponse(response)
             }
@@ -161,10 +161,12 @@ private extension MainViewModel {
                 return QuotePostCellViewModel(post: post, bloger: bloger)
             case .link:
                 return LinkPostCellViewModel(post: post, bloger: bloger)
-            case .video:
-                return VideoPostCellViewModel(post: post, bloger: bloger)
             case .chat:
                 return ChatPostCellViewModel(post: post, bloger: bloger)
+            case .video:
+                return VideoPostCellViewModel(post: post, bloger: bloger)
+            case .answer:
+                return AnswerPostCellViewModel(post: post, bloger: bloger)
             default:
                 return nil
             }
@@ -202,10 +204,12 @@ private extension MainViewModel {
                 return QuotePostCellViewModel(post: post, bloger: bloger)
             case .link:
                 return LinkPostCellViewModel(post: post, bloger: bloger)
-            case .video:
-                return VideoPostCellViewModel(post: post, bloger: bloger)
             case .chat:
                 return ChatPostCellViewModel(post: post, bloger: bloger)
+            case .video:
+                return VideoPostCellViewModel(post: post, bloger: bloger)
+            case .answer:
+                return AnswerPostCellViewModel(post: post, bloger: bloger)
             default:
                 return TextPostCellViewModel(post: post, bloger: bloger)
             }

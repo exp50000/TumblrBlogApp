@@ -114,6 +114,21 @@ class PostModel: ModelBase {
     
     // MARK: - Video Post
     var player: [PlayerModel]?
+    
+    
+    // MARK: - Answer Post
+    
+    /// The blog that sent this ask, or answered it if it was privately answered
+    var asking_name: String?
+    
+    /// The blog URL that sent this ask, or answered it if it was privately answered
+    var asking_url: String?
+    
+    /// The question being asked
+    var question: String?
+    
+    /// The answer given
+    var anwser: String?
 }
 
 extension PostModel {

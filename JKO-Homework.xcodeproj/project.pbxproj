@@ -99,6 +99,9 @@
 		793CE006245E9CC800F13D09 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CE005245E9CC800F13D09 /* Enums.swift */; };
 		793CE008245EA0B100F13D09 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CE007245EA0B000F13D09 /* NSObject+Extension.swift */; };
 		793CE00A245EB98800F13D09 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CE009245EB98800F13D09 /* String+Extension.swift */; };
+		7989A022246D518C00EF3542 /* AnswerPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7989A020246D518C00EF3542 /* AnswerPostCell.swift */; };
+		7989A023246D518C00EF3542 /* AnswerPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7989A021246D518C00EF3542 /* AnswerPostCell.xib */; };
+		7989A025246D51A100EF3542 /* AnswerPostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7989A024246D51A100EF3542 /* AnswerPostCellViewModel.swift */; };
 		79C208AD246C7E6800FB9E06 /* VideoPostDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C208AB246C7E6700FB9E06 /* VideoPostDetailCell.swift */; };
 		79C208AE246C7E6800FB9E06 /* VideoPostDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C208AC246C7E6700FB9E06 /* VideoPostDetailCell.xib */; };
 		79C208B0246C7E8800FB9E06 /* VideoPostDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C208AF246C7E8800FB9E06 /* VideoPostDetailCellViewModel.swift */; };
@@ -199,6 +202,9 @@
 		793CE005245E9CC800F13D09 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		793CE007245EA0B000F13D09 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		793CE009245EB98800F13D09 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		7989A020246D518C00EF3542 /* AnswerPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerPostCell.swift; sourceTree = "<group>"; };
+		7989A021246D518C00EF3542 /* AnswerPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswerPostCell.xib; sourceTree = "<group>"; };
+		7989A024246D51A100EF3542 /* AnswerPostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerPostCellViewModel.swift; sourceTree = "<group>"; };
 		79C208AB246C7E6700FB9E06 /* VideoPostDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostDetailCell.swift; sourceTree = "<group>"; };
 		79C208AC246C7E6700FB9E06 /* VideoPostDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPostDetailCell.xib; sourceTree = "<group>"; };
 		79C208AF246C7E8800FB9E06 /* VideoPostDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostDetailCellViewModel.swift; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 				790976BF2461054B009F36CB /* LinkPostCell */,
 				790976C824611E0D009F36CB /* ChatPostCell */,
 				793C53E024645B1E00172D2C /* VideoPostCell */,
+				7989A01F246D511D00EF3542 /* AnswerPostCell */,
 				7909767D245F2DB8009F36CB /* InfoHeaderCell */,
 			);
 			path = Cell;
@@ -632,6 +639,16 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		7989A01F246D511D00EF3542 /* AnswerPostCell */ = {
+			isa = PBXGroup;
+			children = (
+				7989A020246D518C00EF3542 /* AnswerPostCell.swift */,
+				7989A021246D518C00EF3542 /* AnswerPostCell.xib */,
+				7989A024246D51A100EF3542 /* AnswerPostCellViewModel.swift */,
+			);
+			path = AnswerPostCell;
+			sourceTree = "<group>";
+		};
 		79C208AA246C76EC00FB9E06 /* VideoPostDetailCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,6 +732,7 @@
 				790976D92461544D009F36CB /* ChatCell.xib in Resources */,
 				790976A42460188D009F36CB /* PhotoPostCell.xib in Resources */,
 				7909770D2461E4F5009F36CB /* ChatPostDetailCell.xib in Resources */,
+				7989A023246D518C00EF3542 /* AnswerPostCell.xib in Resources */,
 				793CDFCB245A832300F13D09 /* LaunchScreen.storyboard in Resources */,
 				790976F82461B33D009F36CB /* PhotoPostDetailCell.xib in Resources */,
 				793CDFC8245A832300F13D09 /* Assets.xcassets in Resources */,
@@ -809,6 +827,7 @@
 				790976FA2461B4A9009F36CB /* PhotoPostDetailCellViewModel.swift in Sources */,
 				7909767B245ED502009F36CB /* InfoHeaderCellViewModel.swift in Sources */,
 				79C208AD246C7E6800FB9E06 /* VideoPostDetailCell.swift in Sources */,
+				7989A022246D518C00EF3542 /* AnswerPostCell.swift in Sources */,
 				7909771E2462CA1D009F36CB /* Singleton.swift in Sources */,
 				7909771A2462C65E009F36CB /* SwitchBlogerViewController.swift in Sources */,
 				790977012461CE00009F36CB /* QuotePostDetailCellViewModel.swift in Sources */,
@@ -826,6 +845,7 @@
 				79097689245F43FE009F36CB /* NibLoadable.swift in Sources */,
 				793CE004245E9B6300F13D09 /* MainViewModel.swift in Sources */,
 				790976C224610574009F36CB /* LinkPostCell.swift in Sources */,
+				7989A025246D51A100EF3542 /* AnswerPostCellViewModel.swift in Sources */,
 				790976D82461544D009F36CB /* ChatCell.swift in Sources */,
 				790977082461D92F009F36CB /* LinkPostDetailCellViewModel.swift in Sources */,
 				790976E724616CB0009F36CB /* TextPostDetailCell.swift in Sources */,

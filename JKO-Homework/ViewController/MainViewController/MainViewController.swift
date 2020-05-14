@@ -134,6 +134,8 @@ private extension MainViewController {
             return VideoPostCell.cellIdentifier
         case is ChatPostCellViewModel:
             return ChatPostCell.cellIdentifier
+        case is AnswerPostCellViewModel:
+            return AnswerPostCell.cellIdentifier
         default:
             fatalError("Unexpected view model type: \(viewModel)")
         }
